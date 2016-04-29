@@ -1,2 +1,2 @@
 # LibTgBotPP
-A simple Telegram Bot C++ library
+A simple Telegram Bot C++ library 
