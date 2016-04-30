@@ -59,8 +59,11 @@ set(LIBS ${LIBS} ${CURL_LIBRARIES})
 set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 add_library(tgbotpp SHARED ${SOURCES})
+target_link_libraries(tgbotpp ${LIBS})
 
 install(TARGETS tgbotpp DESTINATION lib)
 install(FILES ${HEADERS} DESTINATION include/Telegram)
 install(FILES tgbotpp.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
+
