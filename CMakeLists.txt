@@ -1,23 +1,23 @@
 set (HEADERS
-  include/Audio.h
-  include/Document.h
-  include/json_encode.h
-  include/PhotoSize.h
-  include/User.h
-  include/Chat.h
-  include/exec.h
-  include/Location.h
-  include/std.h
-  include/Venue.h
-  include/Contact.h
-  include/explode.h
-  include/MessageEntity.h
-  include/Sticker.h
-  include/Video.h
-  include/http_build_query.h
-  include/Message.h
-  include/TelegramBot.h
-  include/Voice.h
+  include/Telegram/Audio.h
+  include/Telegram/Document.h
+  include/Telegram/json_encode.h
+  include/Telegram/PhotoSize.h
+  include/Telegram/User.h
+  include/Telegram/Chat.h
+  include/Telegram/exec.h
+  include/Telegram/Location.h
+  include/Telegram/std.h
+  include/Telegram/Venue.h
+  include/Telegram/Contact.h
+  include/Telegram/explode.h
+  include/Telegram/MessageEntity.h
+  include/Telegram/Sticker.h
+  include/Telegram/Video.h
+  include/Telegram/http_build_query.h
+  include/Telegram/Message.h
+  include/Telegram/TelegramBot.h
+  include/Telegram/Voice.h
 )
 
 set (SOURCES
@@ -44,7 +44,7 @@ set (SOURCES
 
 cmake_minimum_required(VERSION 2.8)
 
-project(libtg)
+project(libtgbotpp)
 
 find_package(PkgConfig)
 
@@ -56,10 +56,11 @@ include_directories(${CURL_INCLUDE_DIRS})
 
 set(LIBS ${LIBS} ${JSONCPP_LIBRARIES})
 set(LIBS ${LIBS} ${CURL_LIBRARIES})
+set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/pkgconfig")
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-add_library(tg SHARED ${SOURCES})
+add_library(tgbotpp SHARED ${SOURCES})
 
-install(TARGETS tg DESTINATION lib)
-install(FILES ${HEADERS} DESTINATION include)
-
+install(TARGETS tgbotpp DESTINATION lib)
+install(FILES ${HEADERS} DESTINATION include/Telegram)
+install(FILES tgbotpp.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
