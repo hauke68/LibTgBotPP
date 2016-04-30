@@ -56,7 +56,7 @@ include_directories(${CURL_INCLUDE_DIRS})
 
 set(LIBS ${LIBS} ${JSONCPP_LIBRARIES})
 set(LIBS ${LIBS} ${CURL_LIBRARIES})
-set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/pkgconfig")
+set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 add_library(tgbotpp SHARED ${SOURCES})
