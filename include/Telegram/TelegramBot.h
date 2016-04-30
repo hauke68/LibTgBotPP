@@ -7,7 +7,7 @@
 #include <curl/curl.h>
 #include <json/json.h>
 
-#include "Message.h"
+#include <Telegram/Message.h>
 
 namespace Telegram {
 

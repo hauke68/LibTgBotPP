@@ -1,4 +1,4 @@
-#include "Contact.h"
+#include "Telegram/Contact.h"
 
 Telegram::Contact::Contact(Json::Value json) {
 

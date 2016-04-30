@@ -1,4 +1,4 @@
-#include "Chat.h"
+#include "Telegram/Chat.h"
 
 Telegram::Chat::Chat(Json::Value json) {
 

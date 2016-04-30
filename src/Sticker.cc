@@ -1,4 +1,4 @@
-#include "Sticker.h"
+#include "Telegram/Sticker.h"
 
 Telegram::Sticker::Sticker(Json::Value json) {
 

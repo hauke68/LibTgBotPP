@@ -1,4 +1,4 @@
-#include "User.h"
+#include "Telegram/User.h"
 
 Telegram::User::User(Json::Value json) {
 

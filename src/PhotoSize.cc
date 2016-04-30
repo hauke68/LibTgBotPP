@@ -1,4 +1,4 @@
-#include "PhotoSize.h"
+#include "Telegram/PhotoSize.h"
 
 Telegram::PhotoSize::PhotoSize(Json::Value json) {
 

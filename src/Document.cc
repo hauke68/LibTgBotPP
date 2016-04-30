@@ -1,4 +1,4 @@
-#include "Document.h"
+#include "Telegram/Document.h"
 
 Telegram::Document::Document(Json::Value json) {
 

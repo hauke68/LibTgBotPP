@@ -6,18 +6,18 @@
 #include <string>
 #include <vector>
 
-#include "Audio.h"
-#include "Chat.h"
-#include "Contact.h"
-#include "Document.h"
-#include "Location.h"
-#include "MessageEntity.h"
-#include "PhotoSize.h"
-#include "Sticker.h"
-#include "User.h"
-#include "Venue.h"
-#include "Video.h"
-#include "Voice.h"
+#include <Telegram/Audio.h>
+#include <Telegram/Chat.h>
+#include <Telegram/Contact.h>
+#include <Telegram/Document.h>
+#include <Telegram/Location.h>
+#include <Telegram/MessageEntity.h>
+#include <Telegram/PhotoSize.h>
+#include <Telegram/Sticker.h>
+#include <Telegram/User.h>
+#include <Telegram/Venue.h>
+#include <Telegram/Video.h>
+#include <Telegram/Voice.h>
 
 namespace Telegram {
 

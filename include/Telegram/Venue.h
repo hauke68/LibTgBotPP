@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "Location.h"
+#include <Telegram/Location.h>
 
 namespace Telegram {
 

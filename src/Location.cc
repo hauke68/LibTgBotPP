@@ -1,4 +1,4 @@
-#include "Location.h"
+#include "Telegram/Location.h"
 
 Telegram::Location::Location(Json::Value json) {
 

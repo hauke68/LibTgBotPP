@@ -1,4 +1,4 @@
-#include "MessageEntity.h"
+#include "Telegram/MessageEntity.h"
 
 Telegram::MessageEntity::MessageEntity(Json::Value json) {
 

@@ -1,4 +1,4 @@
-#include "Voice.h"
+#include "Telegram/Voice.h"
 
 Telegram::Voice::Voice(Json::Value json) {
 

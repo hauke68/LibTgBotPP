@@ -1,22 +1,24 @@
-#ifndef _TG_STICKER_H_
-#define _TG_STICKER_H_
+#ifndef _TG_VIDEO_H_
+#define _TG_VIDEO_H_
 
 #include <json/json.h>
 #include <string>
 
-#include "PhotoSize.h"
+#include <Telegram/PhotoSize.h>
 
 namespace Telegram {
 
-  class Sticker {
+  class Video {
   public:
-    Sticker(Json::Value);
+    Video(Json::Value);
 
   private:
     std::string file_id;
     Json::Int64 width;
     Json::Int64 height;
+    Json::Int64 duration;
     PhotoSize *thumb;
+    std::string mime_type;
     Json::Int64 file_size;
   };
 }

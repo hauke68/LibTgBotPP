@@ -1,4 +1,4 @@
-#include "Message.h"
+#include "Telegram/Message.h"
 
 // Generic constructor
 // @TODO: Make this an "init"-Method and call it from the constructor

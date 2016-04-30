@@ -1,4 +1,4 @@
-#include "TelegramBot.h"
+#include "Telegram/TelegramBot.h"
 
 #include <iostream>
 
@@ -7,12 +7,12 @@
 #include <curlpp/Infos.hpp>
 #include <curlpp/Options.hpp>
 
-#include "http_build_query.h"
-#include "json_encode.h"
-#include "std.h"
+#include "Telegram/http_build_query.h"
+#include "Telegram/json_encode.h"
+#include "Telegram/std.h"
 
-#include "Message.h"
-#include "MessageEntity.h"
+#include "Telegram/Message.h"
+#include "Telegram/MessageEntity.h"
 
 #define API_URL "https://api.telegram.org/bot"
 
