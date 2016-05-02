@@ -8,6 +8,7 @@ var searchData=
   ['photosize_2ecc',['PhotoSize.cc',['../PhotoSize_8cc.html',1,'']]],
   ['photosize_2eh',['PhotoSize.h',['../PhotoSize_8h.html',1,'']]],
   ['pinned_5fmessage',['pinned_message',['../classTelegram_1_1Message.html#ababb83c4421b742e49ac4d251f53709e',1,'Telegram::Message']]],
+  ['platform_5fid',['PLATFORM_ID',['../CMakeCCompilerId_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCXXCompilerId.cpp']]],
   ['processcommand',['processCommand',['../classTelegram_1_1TelegramBot.html#aed4dd1ce506259c0e82f0c46fe125ca4',1,'Telegram::TelegramBot']]],
   ['processmessage',['processMessage',['../classTelegram_1_1TelegramBot.html#af6fbb842f679b33dd8a60f94f82d7c81',1,'Telegram::TelegramBot']]]
 ];

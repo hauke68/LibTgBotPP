@@ -16,19 +16,31 @@
 
 #define API_URL "https://api.telegram.org/bot"
 
-// Constructor of Bot
+/**
+ *Constructor of Bot
+ */
 Telegram::TelegramBot::TelegramBot() {
 
   this->api_url = "";
   this->init();
 }
 
+/**
+ * Constructor of bot
+ *
+ * @param token a std::string
+ */
 Telegram::TelegramBot::TelegramBot(std::string token) {
 
   this->api_url = API_URL + token + "/";
   this->init();
 }
 
+/**
+ * Adds a callback to the command list of the bot
+ *
+ * @param cmd a structure of type TCommand
+ */
 void Telegram::TelegramBot::addCommand(TCommand cmd) {
 
   if (cmd.command[0] != '/') {
@@ -42,6 +54,8 @@ void Telegram::TelegramBot::addCommand(TCommand cmd) {
  * The web hook URL is like https://<your domain>/cgi-bin/mybot.cgi
  * A web hook must be set before you can get any messages from the Telegram
  * network!
+ *
+ * @param url a std::string with the URL of the hook
  */
 void Telegram::TelegramBot::setWebhook(std::string url) {
 
@@ -51,7 +65,12 @@ void Telegram::TelegramBot::setWebhook(std::string url) {
   this->apiRequest("setWebhook", params);
 }
 
-// Process incoming message
+/**
+ * Process incoming message
+ *
+ * @param message a std::string storing the message sent by the Telegram system
+ *
+ */
 void Telegram::TelegramBot::processMessage(std::string message) {
 
   this->msg = new Telegram::Message(message);
@@ -65,7 +84,9 @@ void Telegram::TelegramBot::processMessage(std::string message) {
   }
 }
 
-// Send a text message to a user
+/**
+ * Send a text message to a user
+ */
 void Telegram::TelegramBot::sendMessage(std::string message, Json::Int64 chat_id) {
 
   this->sendMessage(message, SSTR(chat_id));
@@ -96,7 +117,9 @@ void Telegram::TelegramBot::init() {
   std::cout << "Content-type: text/html\r\n\r\n" << std::endl;
 }
 
-// A generic API request
+/**
+ * A generic API request
+ */
 void Telegram::TelegramBot::apiRequest(std::string method, std::map<std::string, std::string> parameters) {
 
   parameters["method"] = method;
@@ -131,7 +154,9 @@ void Telegram::TelegramBot::apiRequest(std::string method, std::map<std::string,
   }
 }
 
-// An API request, posting JSON data
+/**
+ * An API request, posting JSON data
+ */
 void Telegram::TelegramBot::apiRequestJson(std::string method, std::map<std::string, std::string> parameters) {
 
   parameters["method"] = method;

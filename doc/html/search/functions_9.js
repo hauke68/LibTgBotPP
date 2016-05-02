@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['message',['Message',['../classTelegram_1_1Message.html#a467585156f9036194509f7f969d38ee7',1,'Telegram::Message::Message(void)'],['../classTelegram_1_1Message.html#a05293cd3884ade64ae2ae9e523abafda',1,'Telegram::Message::Message(Json::Value)'],['../classTelegram_1_1Message.html#a34c66ab90402aaa8ed7cd49939112df8',1,'Telegram::Message::Message(std::string)']]],
-  ['messageentity',['MessageEntity',['../classTelegram_1_1MessageEntity.html#a11eea544ae55f7ac805d4071b346d3b9',1,'Telegram::MessageEntity']]]
+  ['photosize',['PhotoSize',['../classTelegram_1_1PhotoSize.html#a90b750a16488d8c0f0031204144cee24',1,'Telegram::PhotoSize']]],
+  ['processcommand',['processCommand',['../classTelegram_1_1TelegramBot.html#aed4dd1ce506259c0e82f0c46fe125ca4',1,'Telegram::TelegramBot']]],
+  ['processmessage',['processMessage',['../classTelegram_1_1TelegramBot.html#af6fbb842f679b33dd8a60f94f82d7c81',1,'Telegram::TelegramBot']]]
 ];

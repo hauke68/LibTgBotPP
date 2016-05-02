@@ -1,6 +1,7 @@
 var searchData=
 [
   ['date',['date',['../classTelegram_1_1Message.html#a8a0564c443e6e62d5d63b90ca4dd6115',1,'Telegram::Message']]],
+  ['dec',['DEC',['../CMakeCCompilerId_8c.html#ad1280362da42492bbc11aa78cbf776ad',1,'DEC():&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#ad1280362da42492bbc11aa78cbf776ad',1,'DEC():&#160;CMakeCXXCompilerId.cpp']]],
   ['delete_5fchat_5fphoto',['delete_chat_photo',['../classTelegram_1_1Message.html#a16222e3d355bcece0fc5c94454faf83a',1,'Telegram::Message']]],
   ['document',['Document',['../classTelegram_1_1Document.html',1,'Telegram']]],
   ['document',['Document',['../classTelegram_1_1Document.html#ab1bacdb05cbf7888e861e67f30510e63',1,'Telegram::Document::Document()'],['../classTelegram_1_1Message.html#a4c56131edfdccf206437e62e67adaaa0',1,'Telegram::Message::document()']]],

@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['location_2ecc',['Location.cc',['../Location_8cc.html',1,'']]],
-  ['location_2eh',['Location.h',['../Location_8h.html',1,'']]]
+  ['message_2ecc',['Message.cc',['../Message_8cc.html',1,'']]],
+  ['message_2eh',['Message.h',['../Message_8h.html',1,'']]],
+  ['messageentity_2ecc',['MessageEntity.cc',['../MessageEntity_8cc.html',1,'']]],
+  ['messageentity_2eh',['MessageEntity.h',['../MessageEntity_8h.html',1,'']]]
 ];
