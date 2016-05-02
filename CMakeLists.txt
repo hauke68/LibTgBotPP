@@ -5,12 +5,10 @@ set (HEADERS
   include/Telegram/PhotoSize.h
   include/Telegram/User.h
   include/Telegram/Chat.h
-  include/Telegram/exec.h
   include/Telegram/Location.h
   include/Telegram/std.h
   include/Telegram/Venue.h
   include/Telegram/Contact.h
-  include/Telegram/explode.h
   include/Telegram/MessageEntity.h
   include/Telegram/Sticker.h
   include/Telegram/Video.h
@@ -27,12 +25,10 @@ set (SOURCES
   src/PhotoSize.cc
   src/User.cc
   src/Chat.cc
-  src/exec.cc
   src/Location.cc
   src/std.cc
   src/Venue.cc
   src/Contact.cc
-  src/explode.cc
   src/MessageEntity.cc
   src/Sticker.cc
   src/Video.cc
@@ -66,4 +62,3 @@ target_link_libraries(tgbotpp ${LIBS})
 install(TARGETS tgbotpp DESTINATION lib)
 install(FILES ${HEADERS} DESTINATION include/Telegram)
 install(FILES tgbotpp.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
-
