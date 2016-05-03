@@ -8,6 +8,6 @@ var searchData=
   ['location',['Location',['../classTelegram_1_1Location.html',1,'Telegram']]],
   ['location_2ecc',['Location.cc',['../Location_8cc.html',1,'']]],
   ['location_2eh',['Location.h',['../Location_8h.html',1,'']]],
-  ['log',['Log',['../std_8h.html#a43d4a0b214d7948a4ba43696b9dd9f4d',1,'Log(std::string):&#160;std.cc'],['../std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9',1,'Log(std::string msg):&#160;std.cc']]],
+  ['log',['Log',['../std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9',1,'Log(std::string msg):&#160;std.cc'],['../std_8h.html#a43d4a0b214d7948a4ba43696b9dd9f4d',1,'Log(std::string):&#160;std.cc']]],
   ['longitude',['longitude',['../classTelegram_1_1Location.html#a999f1a2f5f3b79433209007809a2908c',1,'Telegram::Location']]]
 ];

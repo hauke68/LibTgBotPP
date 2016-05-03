@@ -17,5 +17,5 @@ var searchData=
   ['contact',['Contact',['../classTelegram_1_1Contact.html',1,'Telegram']]],
   ['contact_2ecc',['Contact.cc',['../Contact_8cc.html',1,'']]],
   ['contact_2eh',['Contact.h',['../Contact_8h.html',1,'']]],
-  ['currentdate',['currentDate',['../std_8h.html#a9362a88e9b672f9ec4431f148e0198e0',1,'currentDate():&#160;std.cc'],['../std_8cc.html#a9362a88e9b672f9ec4431f148e0198e0',1,'currentDate():&#160;std.cc']]]
+  ['currentdate',['currentDate',['../std_8cc.html#a9362a88e9b672f9ec4431f148e0198e0',1,'currentDate():&#160;std.cc'],['../std_8h.html#a9362a88e9b672f9ec4431f148e0198e0',1,'currentDate():&#160;std.cc']]]
 ];

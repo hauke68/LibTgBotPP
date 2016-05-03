@@ -9,19 +9,25 @@
 
 #include <Telegram/Message.h>
 
+/**
+ * Namespace Telegram used for the bot project
+ */
 namespace Telegram {
 
   class TelegramBot;
 
   // Typedef for callbacks
-  typedef std::vector<std::string> TCommandLine;
-  typedef std::string(*CommandCallback)(TelegramBot*, TCommandLine);
+  typedef std::vector<std::string> TCommandLine; //!< Arguments for the bot's commands
+  typedef std::string(*CommandCallback)(TelegramBot*, TCommandLine); //!< Definition for a callback routine
+  /**
+   * Structure to hold data for callbacks
+   */
   typedef struct {
-    std::string command;
-    CommandCallback callback;
-    std::string help_text;
+    std::string command; //!< The command, e.g. /help
+    CommandCallback callback; //!< Pointer to the callback function
+    std::string help_text; //!< Help text of the command
   } TCommand;
-  typedef std::map<std::string, TCommand> TCommandMap;
+  typedef std::map<std::string, TCommand> TCommandMap; //!< Map that stores the known commands
 
   class TelegramBot {
 
@@ -37,15 +43,6 @@ namespace Telegram {
 
     Telegram::Message *getMessage();
     std::map<std::string, TCommand> getCommandMap();
-
-    // Callback methods
-    /*
-    std::string start(Telegram::TelegramBot, tvCommandLine);
-    std::string help(tvCommandLine);
-    std::string whoami(tvCommandLine);
-    std::string loadavg(tvCommandLine);
-    std::string proc(tvCommandLine);
-    */
 
   private:
     std::string api_url;
