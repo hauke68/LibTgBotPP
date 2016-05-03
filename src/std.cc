@@ -1,4 +1,4 @@
-#include "Telegram/std.h"
+#include "std.h"
 
 #include <pwd.h>
 #include <time.h>
