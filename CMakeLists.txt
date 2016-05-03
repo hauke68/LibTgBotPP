@@ -1,18 +1,15 @@
 set (HEADERS
   include/Telegram/Audio.h
   include/Telegram/Document.h
-  include/Telegram/json_encode.h
   include/Telegram/PhotoSize.h
   include/Telegram/User.h
   include/Telegram/Chat.h
   include/Telegram/Location.h
-  include/Telegram/std.h
   include/Telegram/Venue.h
   include/Telegram/Contact.h
   include/Telegram/MessageEntity.h
   include/Telegram/Sticker.h
   include/Telegram/Video.h
-  include/Telegram/http_build_query.h
   include/Telegram/Message.h
   include/Telegram/TelegramBot.h
   include/Telegram/Voice.h
