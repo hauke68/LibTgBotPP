@@ -1,0 +1,14 @@
+prefix=/usr
+libdir=${prefix}/lib
+includedir=${prefix}/include/Telegram
+
+version = 0.0.1
+
+name = tgbotpp
+pkgname = libtgbotpp
+
+Name: ${name}
+Version: ${version}
+Description: C++ library for Telegram bots
+Cflags: -I${includedir}
+Libs: -L${libdir} -ltgbotpp
