@@ -6,5 +6,6 @@ Telegram::Sticker::Sticker(Json::Value json) {
   this->width = json["width"].asInt64();
   this->height = json["height"].asInt64();
   this->thumb = new PhotoSize(json["thumb"]);
+  this->emoji = json["emoji"].asString();
   this->file_size = json["file_size"].asInt64();
 }

@@ -17,6 +17,7 @@ namespace Telegram {
     Json::Int64 width;
     Json::Int64 height;
     PhotoSize *thumb;
+    std::string emoji;
     Json::Int64 file_size;
   };
 }
