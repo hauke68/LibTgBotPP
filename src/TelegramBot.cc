@@ -7,9 +7,9 @@
 #include <curlpp/Infos.hpp>
 #include <curlpp/Options.hpp>
 
-#include "Telegram/http_build_query.h"
-#include "Telegram/json_encode.h"
-#include "Telegram/std.h"
+#include "http_build_query.h"
+#include "json_encode.h"
+#include "std.h"
 
 #include "Telegram/Message.h"
 #include "Telegram/MessageEntity.h"
