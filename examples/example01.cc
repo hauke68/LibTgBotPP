@@ -160,7 +160,12 @@ int main(int argc, char** argv) {
     // Process options
     std::string user_id = ""; // ID of the receiving user
 
+#ifdef __arm__
+    int c;
+#else
     char c;
+#endif
+
     while ((c = getopt(argc, argv, "u:")) != -1) {
       switch(c) {
       case 'u':
