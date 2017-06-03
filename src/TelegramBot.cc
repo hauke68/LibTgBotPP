@@ -92,6 +92,9 @@ void Telegram::TelegramBot::sendMessage(std::string message, Json::Int64 chat_id
   this->sendMessage(message, SSTR(chat_id));
 }
 
+/**
+ * sendMessage sends a simple text message to a given chat (might be a user or a group)
+ */
 void Telegram::TelegramBot::sendMessage(std::string message, std::string chat_id) {
 
   std::map<std::string, std::string> params;
@@ -99,6 +102,19 @@ void Telegram::TelegramBot::sendMessage(std::string message, std::string chat_id
   params["text"] = message;
 
   this->apiRequestJson("sendMessage", params);
+}
+
+/**
+ * Sends a phot from the internet to a chat
+ */
+void Telegram::TelegramBot::sendPhoto(std::string URL, std::string chat_id) {
+
+	std::map<std::string, std::string> params;
+
+	params["chat_id"] = chat_id;
+	params["photo"] = URL;
+
+	this->apiRequestJson("sendPhoto", params);
 }
 
 Telegram::Message *Telegram::TelegramBot::getMessage() {
