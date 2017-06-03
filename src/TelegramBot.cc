@@ -105,7 +105,9 @@ void Telegram::TelegramBot::sendMessage(std::string message, std::string chat_id
 }
 
 /**
- * Sends a phot from the internet to a chat
+ * Sends a picture from the internet to a chat
+ *
+ * URL MUST BE HTTP!
  */
 void Telegram::TelegramBot::sendPhoto(std::string URL, std::string chat_id) {
 
