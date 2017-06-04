@@ -1,4 +1,15 @@
 var searchData=
 [
-  ['width',['width',['../classTelegram_1_1PhotoSize.html#ad27235d3fab212065b48437468b8c6b6',1,'Telegram::PhotoSize::width()'],['../classTelegram_1_1Sticker.html#aabc8e28c3a383cc23e286684240a1e89',1,'Telegram::Sticker::width()'],['../classTelegram_1_1Video.html#a6c8d76a126866901a66080063c2ddc84',1,'Telegram::Video::width()']]]
+  ['venue',['Venue',['../classTelegram_1_1Venue.html',1,'Telegram']]],
+  ['venue',['venue',['../classTelegram_1_1Message.html#a7a36175204514f4330779e23545d5718',1,'Telegram::Message::venue()'],['../classTelegram_1_1Venue.html#ace752fa42d56246876bcd742b5664e3d',1,'Telegram::Venue::Venue()']]],
+  ['venue_2ecc',['Venue.cc',['../Venue_8cc.html',1,'']]],
+  ['venue_2eh',['Venue.h',['../Venue_8h.html',1,'']]],
+  ['video',['Video',['../classTelegram_1_1Video.html',1,'Telegram']]],
+  ['video',['video',['../classTelegram_1_1Message.html#aff0454f91eeb02123c08a39fc338458a',1,'Telegram::Message::video()'],['../classTelegram_1_1Video.html#ae36f36337e5c01d9b791008ce468cbe2',1,'Telegram::Video::Video()']]],
+  ['video_2ecc',['Video.cc',['../Video_8cc.html',1,'']]],
+  ['video_2eh',['Video.h',['../Video_8h.html',1,'']]],
+  ['voice',['Voice',['../classTelegram_1_1Voice.html#ab52d101c1c5ac2ba65bbf3e8e0e92060',1,'Telegram::Voice::Voice()'],['../classTelegram_1_1Message.html#a851db1ca1cc21040d2aeb21e0f51d885',1,'Telegram::Message::voice()']]],
+  ['voice',['Voice',['../classTelegram_1_1Voice.html',1,'Telegram']]],
+  ['voice_2ecc',['Voice.cc',['../Voice_8cc.html',1,'']]],
+  ['voice_2eh',['Voice.h',['../Voice_8h.html',1,'']]]
 ];
