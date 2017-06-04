@@ -12,6 +12,8 @@ var classTelegram_1_1TelegramBot =
     [ "processMessage", "classTelegram_1_1TelegramBot.html#af6fbb842f679b33dd8a60f94f82d7c81", null ],
     [ "sendMessage", "classTelegram_1_1TelegramBot.html#a1645dae5fdfb1437bb8976f44c237563", null ],
     [ "sendMessage", "classTelegram_1_1TelegramBot.html#ac9fdf927b0ebf72b40a0a75639e39d18", null ],
+    [ "sendPhoto", "classTelegram_1_1TelegramBot.html#a58e633cc42dcd964a37e2814102764bc", null ],
+    [ "sendPhoto", "classTelegram_1_1TelegramBot.html#a257660b7cead3d886d94824efe9819f6", null ],
     [ "setWebhook", "classTelegram_1_1TelegramBot.html#aabd1a825b1d7f127f15bf336b985d70d", null ],
     [ "api_url", "classTelegram_1_1TelegramBot.html#a1ca971ccfb242f7b8656eca3ab7666dd", null ],
     [ "chat_id", "classTelegram_1_1TelegramBot.html#a33ce0cbad266e831c834aa2e3d854e5a", null ],

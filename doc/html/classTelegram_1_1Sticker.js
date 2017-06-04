@@ -1,6 +1,7 @@
 var classTelegram_1_1Sticker =
 [
     [ "Sticker", "classTelegram_1_1Sticker.html#a1c59057647aab0ea54035faa13723802", null ],
+    [ "emoji", "classTelegram_1_1Sticker.html#af33b08581c53a2613a334157460cc5e5", null ],
     [ "file_id", "classTelegram_1_1Sticker.html#a0bdf3a45e063da3aad1ccad78d8b2633", null ],
     [ "file_size", "classTelegram_1_1Sticker.html#a2dfc54e987a7dbe418179cab2f2d3604", null ],
     [ "height", "classTelegram_1_1Sticker.html#a3d9815de62f58690e137d254de9bf4ee", null ],

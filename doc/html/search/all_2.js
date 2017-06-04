@@ -1,11 +1,21 @@
 var searchData=
 [
-  ['date',['date',['../classTelegram_1_1Message.html#a8a0564c443e6e62d5d63b90ca4dd6115',1,'Telegram::Message']]],
-  ['dec',['DEC',['../CMakeCCompilerId_8c.html#ad1280362da42492bbc11aa78cbf776ad',1,'DEC():&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#ad1280362da42492bbc11aa78cbf776ad',1,'DEC():&#160;CMakeCXXCompilerId.cpp']]],
-  ['delete_5fchat_5fphoto',['delete_chat_photo',['../classTelegram_1_1Message.html#a16222e3d355bcece0fc5c94454faf83a',1,'Telegram::Message']]],
-  ['document',['Document',['../classTelegram_1_1Document.html',1,'Telegram']]],
-  ['document',['Document',['../classTelegram_1_1Document.html#ab1bacdb05cbf7888e861e67f30510e63',1,'Telegram::Document::Document()'],['../classTelegram_1_1Message.html#a4c56131edfdccf206437e62e67adaaa0',1,'Telegram::Message::document()']]],
-  ['document_2ecc',['Document.cc',['../Document_8cc.html',1,'']]],
-  ['document_2eh',['Document.h',['../Document_8h.html',1,'']]],
-  ['duration',['duration',['../classTelegram_1_1Audio.html#a55c965d5c8106d8c5d344a31df7ea307',1,'Telegram::Audio::duration()'],['../classTelegram_1_1Video.html#acc0509727f4532d82b87049564d2e1e6',1,'Telegram::Video::duration()'],['../classTelegram_1_1Voice.html#acb0b5b060352de7312aadbc3703faf6d',1,'Telegram::Voice::duration()']]]
+  ['callback',['callback',['../structTelegram_1_1TCommand.html#a3f2c8ecbfd34be25baa577afee2e6e52',1,'Telegram::TCommand']]],
+  ['caption',['caption',['../classTelegram_1_1Message.html#abb3b90514c696bff23b9a48b214d2d6f',1,'Telegram::Message']]],
+  ['chat',['Chat',['../classTelegram_1_1Chat.html',1,'Telegram']]],
+  ['chat',['Chat',['../classTelegram_1_1Chat.html#ae566583d7849c7d833f8762bff1d6cf1',1,'Telegram::Chat::Chat()'],['../classTelegram_1_1Message.html#a6b131505766e1b6d0023dc043871ecf0',1,'Telegram::Message::chat()']]],
+  ['chat_2ecc',['Chat.cc',['../Chat_8cc.html',1,'']]],
+  ['chat_2eh',['Chat.h',['../Chat_8h.html',1,'']]],
+  ['chat_5fid',['chat_id',['../classTelegram_1_1TelegramBot.html#a33ce0cbad266e831c834aa2e3d854e5a',1,'Telegram::TelegramBot']]],
+  ['cmakeccompilerid_2ec',['CMakeCCompilerId.c',['../CMakeCCompilerId_8c.html',1,'']]],
+  ['cmakecxxcompilerid_2ecpp',['CMakeCXXCompilerId.cpp',['../CMakeCXXCompilerId_8cpp.html',1,'']]],
+  ['command',['command',['../structTelegram_1_1TCommand.html#a1c051d162e478b9f98efafbeeed19f9b',1,'Telegram::TCommand']]],
+  ['command_5fmap',['command_map',['../classTelegram_1_1TelegramBot.html#a4729f977e1d564326f0061c1417dc09c',1,'Telegram::TelegramBot']]],
+  ['commandcallback',['CommandCallback',['../namespaceTelegram.html#a91fee4a272faa7eb5f1aeb68ed0b54a4',1,'Telegram']]],
+  ['compiler_5fid',['COMPILER_ID',['../CMakeCCompilerId_8c.html#a81dee0709ded976b2e0319239f72d174',1,'COMPILER_ID():&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#a81dee0709ded976b2e0319239f72d174',1,'COMPILER_ID():&#160;CMakeCXXCompilerId.cpp']]],
+  ['contact',['contact',['../classTelegram_1_1Message.html#ad14240aed7156379973707d19e05a010',1,'Telegram::Message::contact()'],['../classTelegram_1_1Contact.html#af1b919732d5b16564e125741d269084e',1,'Telegram::Contact::Contact()']]],
+  ['contact',['Contact',['../classTelegram_1_1Contact.html',1,'Telegram']]],
+  ['contact_2ecc',['Contact.cc',['../Contact_8cc.html',1,'']]],
+  ['contact_2eh',['Contact.h',['../Contact_8h.html',1,'']]],
+  ['currentdate',['currentDate',['../std_8cc.html#a9362a88e9b672f9ec4431f148e0198e0',1,'currentDate():&#160;std.cc'],['../std_8h.html#a9362a88e9b672f9ec4431f148e0198e0',1,'currentDate():&#160;std.cc']]]
 ];
