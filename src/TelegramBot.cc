@@ -107,6 +107,14 @@ void Telegram::TelegramBot::sendMessage(std::string message, std::string chat_id
 /**
  * Sends a picture from the internet to a chat
  */
+void Telegram::TelegramBot::sendPhoto(std::string URL, Json::Int64 chat_id) {
+
+	this->sendPhoto(URL, SSTR(chat_id));
+}
+
+/**
+ * Sends a picture from the internet to a chat
+ */
 void Telegram::TelegramBot::sendPhoto(std::string URL, std::string chat_id) {
 
 	std::map<std::string, std::string> params;
