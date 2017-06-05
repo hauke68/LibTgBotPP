@@ -41,8 +41,8 @@ namespace Telegram {
     void sendMessage(std::string, Json::Int64);
     void sendMessage(std::string, std::string);
 
-    void sendPhoto(std::string, Json::Int64);
-    void sendPhoto(std::string, std::string);
+    Telegram::Message *sendPhoto(std::string, Json::Int64);
+    Telegram::Message *sendPhoto(std::string, std::string);
 
     Telegram::Message *getMessage();
     std::map<std::string, TCommand> getCommandMap();
@@ -55,7 +55,7 @@ namespace Telegram {
 
     void init();
     void apiRequest(std::string, std::map<std::string, std::string>);
-    void apiRequestJson(std::string, std::map<std::string, std::string>);
+    Telegram::Message *apiRequestJson(std::string, std::map<std::string, std::string>);
     std::string processCommand(std::string);
   };
 }

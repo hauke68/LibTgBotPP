@@ -107,22 +107,22 @@ void Telegram::TelegramBot::sendMessage(std::string message, std::string chat_id
 /**
  * Sends a picture from the internet to a chat
  */
-void Telegram::TelegramBot::sendPhoto(std::string URL, Json::Int64 chat_id) {
+Telegram::Message* Telegram::TelegramBot::sendPhoto(std::string URL, Json::Int64 chat_id) {
 
-	this->sendPhoto(URL, SSTR(chat_id));
+	return(this->sendPhoto(URL, SSTR(chat_id)));
 }
 
 /**
  * Sends a picture from the internet to a chat
  */
-void Telegram::TelegramBot::sendPhoto(std::string URL, std::string chat_id) {
+Telegram::Message* Telegram::TelegramBot::sendPhoto(std::string URL, std::string chat_id) {
 
 	std::map<std::string, std::string> params;
 
 	params["chat_id"] = chat_id;
 	params["photo"] = URL;
 
-	this->apiRequestJson("sendPhoto", params);
+	return(this->apiRequestJson("sendPhoto", params));
 }
 
 Telegram::Message *Telegram::TelegramBot::getMessage() {
@@ -181,31 +181,40 @@ void Telegram::TelegramBot::apiRequest(std::string method, std::map<std::string,
 /**
  * An API request, posting JSON data
  */
-void Telegram::TelegramBot::apiRequestJson(std::string method, std::map<std::string, std::string> parameters) {
+Telegram::Message* Telegram::TelegramBot::apiRequestJson(std::string method, std::map<std::string, std::string> parameters) {
 
-  parameters["method"] = method;
+	std::stringstream result; // Stores the result of the api call
+	parameters["method"] = method;
 
-  try {
-    cURLpp::Easy handle;
-    std::list<std::string> header;
-    header.push_back("Content-Type: application/json");
+	try {
+		cURLpp::Easy handle;
+		std::list<std::string> header;
+		header.push_back("Content-Type: application/json");
 
-    handle.setOpt(cURLpp::Options::Url(this->api_url));
-    handle.setOpt(cURLpp::Options::ConnectTimeout(5));
-    handle.setOpt(cURLpp::Options::Timeout(60));
-    handle.setOpt(cURLpp::Options::HttpHeader(header));
-    handle.setOpt(cURLpp::Options::PostFields(json_encode(parameters)));
-    handle.perform(); // Do the curl request
-  }
-  catch(cURLpp::LogicError &e) {
-    Log(e.what());
-  }
-  catch(cURLpp::RuntimeError &e) {
-    Log(e.what());
-  }
-  catch(std::exception &e) {
-    Log(e.what());
-  }
+		handle.setOpt(cURLpp::Options::Url(this->api_url));
+		handle.setOpt(cURLpp::Options::ConnectTimeout(5));
+		handle.setOpt(cURLpp::Options::Timeout(60));
+		handle.setOpt(cURLpp::Options::HttpHeader(header));
+		handle.setOpt(cURLpp::Options::PostFields(json_encode(parameters)));
+		handle.setOpt(cURLpp::Options::WriteStream(&result));
+
+		handle.perform(); // Do the curl request
+	}
+	catch(cURLpp::LogicError &e) {
+		Log(e.what());
+	}
+	catch(cURLpp::RuntimeError &e) {
+		Log(e.what());
+	}
+	catch(std::exception &e) {
+		Log(e.what());
+	}
+
+	Json::Reader jreader;
+	Json::Value obj;
+	jreader.parse(result.str(), obj);
+
+	return (new Telegram::Message(obj["result"]));
 }
 
 std::string Telegram::TelegramBot::processCommand(std::string cmd) {
