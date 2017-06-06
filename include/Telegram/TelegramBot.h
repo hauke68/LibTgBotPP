@@ -8,6 +8,7 @@
 #include <json/json.h>
 
 #include <Telegram/Message.h>
+#include <Telegram/User.h>
 
 /**
  * Namespace Telegram used for the bot project
