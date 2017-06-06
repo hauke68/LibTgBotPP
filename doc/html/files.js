@@ -8,8 +8,6 @@ var files =
     [ "Chat.h", "Chat_8h.html", [
       [ "Chat", "classTelegram_1_1Chat.html", "classTelegram_1_1Chat" ]
     ] ],
-    [ "CMakeCCompilerId.c", "CMakeCCompilerId_8c.html", "CMakeCCompilerId_8c" ],
-    [ "CMakeCXXCompilerId.cpp", "CMakeCXXCompilerId_8cpp.html", "CMakeCXXCompilerId_8cpp" ],
     [ "Contact.cc", "Contact_8cc.html", null ],
     [ "Contact.h", "Contact_8h.html", [
       [ "Contact", "classTelegram_1_1Contact.html", "classTelegram_1_1Contact" ]
