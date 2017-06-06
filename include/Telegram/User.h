@@ -10,6 +10,11 @@ namespace Telegram {
   public:
     User(Json::Value);
 
+	Json::Int64 getId();
+	std::string getFirstName();
+	std::string getLastName();
+	std::string getUserName();
+
   private:
     Json::Int64 id;
     std::string first_name;
