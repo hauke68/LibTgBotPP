@@ -87,21 +87,25 @@ void Telegram::TelegramBot::processMessage(std::string message) {
 /**
  * Send a text message to a user
  */
-void Telegram::TelegramBot::sendMessage(std::string message, Json::Int64 chat_id) {
+Telegram::Message *Telegram::TelegramBot::sendMessage(std::string message, Json::Int64 chat_id) {
 
-  this->sendMessage(message, SSTR(chat_id));
+  return(this->sendMessage(message, SSTR(chat_id)));
 }
 
 /**
  * sendMessage sends a simple text message to a given chat (might be a user or a group)
  */
-void Telegram::TelegramBot::sendMessage(std::string message, std::string chat_id) {
+Telegram::Message* Telegram::TelegramBot::sendMessage(std::string message, std::string chat_id) {
 
-  std::map<std::string, std::string> params;
-  params["chat_id"] = chat_id;
-  params["text"] = message;
+	std::map<std::string, std::string> params;
+	Json::Value obj;
 
-  this->apiRequestJson("sendMessage", params);
+	params["chat_id"] = chat_id;
+	params["text"] = message;
+
+	obj = this->apiRequestJson("sendMessage", params);
+
+	return(new Telegram::Message(obj["result"]));
 }
 
 /**
@@ -117,12 +121,16 @@ Telegram::Message* Telegram::TelegramBot::sendPhoto(std::string URL, Json::Int64
  */
 Telegram::Message* Telegram::TelegramBot::sendPhoto(std::string URL, std::string chat_id) {
 
+	Json::Value obj;
+
 	std::map<std::string, std::string> params;
 
 	params["chat_id"] = chat_id;
 	params["photo"] = URL;
 
-	return(this->apiRequestJson("sendPhoto", params));
+	obj = this->apiRequestJson("sendPhoto", params);
+
+	return(new Telegram::Message(obj["result"]));
 }
 
 Telegram::Message *Telegram::TelegramBot::getMessage() {
@@ -181,7 +189,7 @@ void Telegram::TelegramBot::apiRequest(std::string method, std::map<std::string,
 /**
  * An API request, posting JSON data
  */
-Telegram::Message* Telegram::TelegramBot::apiRequestJson(std::string method, std::map<std::string, std::string> parameters) {
+Json::Value Telegram::TelegramBot::apiRequestJson(std::string method, std::map<std::string, std::string> parameters) {
 
 	std::stringstream result; // Stores the result of the api call
 	parameters["method"] = method;
@@ -214,7 +222,7 @@ Telegram::Message* Telegram::TelegramBot::apiRequestJson(std::string method, std
 	Json::Value obj;
 	jreader.parse(result.str(), obj);
 
-	return (new Telegram::Message(obj["result"]));
+	return (obj);
 }
 
 std::string Telegram::TelegramBot::processCommand(std::string cmd) {
