@@ -1,7 +1,7 @@
 var searchData=
 [
   ['venue',['Venue',['../classTelegram_1_1Venue.html',1,'Telegram']]],
-  ['venue',['venue',['../classTelegram_1_1Message.html#a7a36175204514f4330779e23545d5718',1,'Telegram::Message::venue()'],['../classTelegram_1_1Venue.html#ace752fa42d56246876bcd742b5664e3d',1,'Telegram::Venue::Venue()']]],
+  ['venue',['Venue',['../classTelegram_1_1Venue.html#ace752fa42d56246876bcd742b5664e3d',1,'Telegram::Venue::Venue()'],['../classTelegram_1_1Message.html#a7a36175204514f4330779e23545d5718',1,'Telegram::Message::venue()']]],
   ['venue_2ecc',['Venue.cc',['../Venue_8cc.html',1,'']]],
   ['venue_2eh',['Venue.h',['../Venue_8h.html',1,'']]],
   ['video',['Video',['../classTelegram_1_1Video.html',1,'Telegram']]],
