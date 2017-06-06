@@ -38,6 +38,9 @@ namespace Telegram {
     void addCommand(TCommand);
     void setWebhook(std::string);
     void processMessage(std::string);
+
+    Telegram::User* getMe(void);
+
     Telegram::Message* sendMessage(std::string, Json::Int64);
     Telegram::Message* sendMessage(std::string, std::string);
 
