@@ -38,8 +38,8 @@ namespace Telegram {
     void addCommand(TCommand);
     void setWebhook(std::string);
     void processMessage(std::string);
-    void sendMessage(std::string, Json::Int64);
-    void sendMessage(std::string, std::string);
+    Telegram::Message* sendMessage(std::string, Json::Int64);
+    Telegram::Message* sendMessage(std::string, std::string);
 
     Telegram::Message *sendPhoto(std::string, Json::Int64);
     Telegram::Message *sendPhoto(std::string, std::string);
@@ -55,7 +55,7 @@ namespace Telegram {
 
     void init();
     void apiRequest(std::string, std::map<std::string, std::string>);
-    Telegram::Message *apiRequestJson(std::string, std::map<std::string, std::string>);
+    Json::Value apiRequestJson(std::string, std::map<std::string, std::string>);
     std::string processCommand(std::string);
   };
 }
