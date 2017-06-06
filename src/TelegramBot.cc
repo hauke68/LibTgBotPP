@@ -84,6 +84,16 @@ void Telegram::TelegramBot::processMessage(std::string message) {
   }
 }
 
+Telegram::User *Telegram::TelegramBot::getMe(void) {
+
+	Json::Value obj;
+	std::map<std::string, std::string> params;
+
+	obj = this->apiRequestJson("getMe", params);
+
+	return(new Telegram::User(obj["result"]));
+}
+
 /**
  * Send a text message to a user
  */
