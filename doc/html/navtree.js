@@ -32,7 +32,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Audio_8cc.html",
-"pages.html"
+"json__encode_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

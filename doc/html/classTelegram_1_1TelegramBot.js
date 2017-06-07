@@ -4,6 +4,7 @@ var classTelegram_1_1TelegramBot =
     [ "TelegramBot", "classTelegram_1_1TelegramBot.html#a52f2a5f734bac5f83d2c0e5068618646", null ],
     [ "addCommand", "classTelegram_1_1TelegramBot.html#a398bd76186e27d514afd835c5437c6ed", null ],
     [ "apiRequest", "classTelegram_1_1TelegramBot.html#a7e07f1ca99390958ef5c6c95cbf18258", null ],
+    [ "apiRequestFile", "classTelegram_1_1TelegramBot.html#afc52db678c8dacb568075b8c013eafde", null ],
     [ "apiRequestJson", "classTelegram_1_1TelegramBot.html#aba249898870b8250da0ac67ba6a55e88", null ],
     [ "getCommandMap", "classTelegram_1_1TelegramBot.html#aae9aba06108ce34f9766199c6588e1d6", null ],
     [ "getMe", "classTelegram_1_1TelegramBot.html#a18326a958f926cdea62339899a29a1e1", null ],

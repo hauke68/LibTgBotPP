@@ -123,230 +123,277 @@ $(document).ready(function(){initNavTree('TelegramBot_8cc_source.html','');});
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="TelegramBot_8cc.html#a47cbcc6d148fe0c8f9fb95966026aa97">   17</a></span>&#160;<span class="preprocessor">#define API_URL &quot;https://api.telegram.org/bot&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a99b561e695953e6b69a3ddf6937a4811">   22</a></span>&#160;<a class="code" href="classTelegram_1_1TelegramBot.html#a99b561e695953e6b69a3ddf6937a4811">Telegram::TelegramBot::TelegramBot</a>() {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  this-&gt;<a class="code" href="classTelegram_1_1TelegramBot.html#a1ca971ccfb242f7b8656eca3ab7666dd">api_url</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  this-&gt;<a class="code" href="classTelegram_1_1TelegramBot.html#ae0d0fe5d54afcc9e6ee16b3d4f8ae895">init</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a52f2a5f734bac5f83d2c0e5068618646">   33</a></span>&#160;<a class="code" href="classTelegram_1_1TelegramBot.html#a99b561e695953e6b69a3ddf6937a4811">Telegram::TelegramBot::TelegramBot</a>(std::string token) {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  this-&gt;api_url = <a class="code" href="TelegramBot_8cc.html#a47cbcc6d148fe0c8f9fb95966026aa97">API_URL</a> + token + <span class="stringliteral">&quot;/&quot;</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  this-&gt;init();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a398bd76186e27d514afd835c5437c6ed">   44</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classTelegram_1_1TelegramBot.html#a398bd76186e27d514afd835c5437c6ed">Telegram::TelegramBot::addCommand</a>(<a class="code" href="structTelegram_1_1TCommand.html">TCommand</a> cmd) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">if</span> (cmd.<a class="code" href="structTelegram_1_1TCommand.html#a1c051d162e478b9f98efafbeeed19f9b">command</a>[0] != <span class="charliteral">&#39;/&#39;</span>) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    cmd.<a class="code" href="structTelegram_1_1TCommand.html#a1c051d162e478b9f98efafbeeed19f9b">command</a> = <span class="stringliteral">&quot;/&quot;</span> + cmd.<a class="code" href="structTelegram_1_1TCommand.html#a1c051d162e478b9f98efafbeeed19f9b">command</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  this-&gt;command_map[cmd.<a class="code" href="structTelegram_1_1TCommand.html#a1c051d162e478b9f98efafbeeed19f9b">command</a>] = cmd;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#aabd1a825b1d7f127f15bf336b985d70d">   60</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classTelegram_1_1TelegramBot.html#aabd1a825b1d7f127f15bf336b985d70d">Telegram::TelegramBot::setWebhook</a>(std::string url) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  std::map&lt;std::string, std::string&gt; params;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  params[<span class="stringliteral">&quot;url&quot;</span>] = url;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  this-&gt;apiRequest(<span class="stringliteral">&quot;setWebhook&quot;</span>, params);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#af6fbb842f679b33dd8a60f94f82d7c81">   74</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classTelegram_1_1TelegramBot.html#af6fbb842f679b33dd8a60f94f82d7c81">Telegram::TelegramBot::processMessage</a>(std::string message) {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  this-&gt;msg = <span class="keyword">new</span> <a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>(message);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="namespaceTelegram.html#aa7927193a64b09836112d3be24c45d85">Telegram::TMessageEntities</a> entities = this-&gt;msg-&gt;getEntities();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordflow">if</span> (entities.size() &amp;&amp; (entities[0]-&gt;getType() == <span class="stringliteral">&quot;bot_command&quot;</span>)) {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    this-&gt;sendMessage(this-&gt;processCommand(this-&gt;msg-&gt;getText()), this-&gt;msg-&gt;getChat()-&gt;getId());</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    this-&gt;sendMessage(<span class="stringliteral">&quot;Hello &quot;</span> + this-&gt;msg-&gt;getChat()-&gt;getUsername() + <span class="stringliteral">&quot;, you told me: &#39;&quot;</span> + msg-&gt;getText() + <span class="stringliteral">&quot;&#39;&quot;</span>, this-&gt;msg-&gt;getChat()-&gt;getId());</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a18326a958f926cdea62339899a29a1e1">   87</a></span>&#160;<a class="code" href="classTelegram_1_1User.html">Telegram::User</a> *<a class="code" href="classTelegram_1_1TelegramBot.html#a18326a958f926cdea62339899a29a1e1">Telegram::TelegramBot::getMe</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    Json::Value obj;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    std::map&lt;std::string, std::string&gt; params;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a99b561e695953e6b69a3ddf6937a4811">   24</a></span>&#160;<a class="code" href="classTelegram_1_1TelegramBot.html#a99b561e695953e6b69a3ddf6937a4811">Telegram::TelegramBot::TelegramBot</a>() {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  this-&gt;<a class="code" href="classTelegram_1_1TelegramBot.html#a1ca971ccfb242f7b8656eca3ab7666dd">api_url</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  this-&gt;<a class="code" href="classTelegram_1_1TelegramBot.html#ae0d0fe5d54afcc9e6ee16b3d4f8ae895">init</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a52f2a5f734bac5f83d2c0e5068618646">   38</a></span>&#160;<a class="code" href="classTelegram_1_1TelegramBot.html#a99b561e695953e6b69a3ddf6937a4811">Telegram::TelegramBot::TelegramBot</a>(std::string token) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  this-&gt;api_url = <a class="code" href="TelegramBot_8cc.html#a47cbcc6d148fe0c8f9fb95966026aa97">API_URL</a> + token + <span class="stringliteral">&quot;/&quot;</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  this-&gt;init();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a398bd76186e27d514afd835c5437c6ed">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classTelegram_1_1TelegramBot.html#a398bd76186e27d514afd835c5437c6ed">Telegram::TelegramBot::addCommand</a>(<a class="code" href="structTelegram_1_1TCommand.html">TCommand</a> cmd) {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordflow">if</span> (cmd.<a class="code" href="structTelegram_1_1TCommand.html#a1c051d162e478b9f98efafbeeed19f9b">command</a>[0] != <span class="charliteral">&#39;/&#39;</span>) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    cmd.<a class="code" href="structTelegram_1_1TCommand.html#a1c051d162e478b9f98efafbeeed19f9b">command</a> = <span class="stringliteral">&quot;/&quot;</span> + cmd.<a class="code" href="structTelegram_1_1TCommand.html#a1c051d162e478b9f98efafbeeed19f9b">command</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  this-&gt;command_map[cmd.<a class="code" href="structTelegram_1_1TCommand.html#a1c051d162e478b9f98efafbeeed19f9b">command</a>] = cmd;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#aabd1a825b1d7f127f15bf336b985d70d">   65</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classTelegram_1_1TelegramBot.html#aabd1a825b1d7f127f15bf336b985d70d">Telegram::TelegramBot::setWebhook</a>(std::string url) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  std::map&lt;std::string, std::string&gt; params;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  params[<span class="stringliteral">&quot;url&quot;</span>] = url;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  this-&gt;apiRequest(<span class="stringliteral">&quot;setWebhook&quot;</span>, params);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#af6fbb842f679b33dd8a60f94f82d7c81">   79</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classTelegram_1_1TelegramBot.html#af6fbb842f679b33dd8a60f94f82d7c81">Telegram::TelegramBot::processMessage</a>(std::string message) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  this-&gt;msg = <span class="keyword">new</span> <a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>(message);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <a class="code" href="namespaceTelegram.html#aa7927193a64b09836112d3be24c45d85">Telegram::TMessageEntities</a> entities = this-&gt;msg-&gt;getEntities();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordflow">if</span> (entities.size() &amp;&amp; (entities[0]-&gt;getType() == <span class="stringliteral">&quot;bot_command&quot;</span>)) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    this-&gt;sendMessage(this-&gt;processCommand(this-&gt;msg-&gt;getText()), this-&gt;msg-&gt;getChat()-&gt;getId());</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    this-&gt;sendMessage(<span class="stringliteral">&quot;Hello &quot;</span> + this-&gt;msg-&gt;getChat()-&gt;getUsername() + <span class="stringliteral">&quot;, you told me: &#39;&quot;</span> + msg-&gt;getText() + <span class="stringliteral">&quot;&#39;&quot;</span>, this-&gt;msg-&gt;getChat()-&gt;getId());</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    obj = this-&gt;apiRequestJson(<span class="stringliteral">&quot;getMe&quot;</span>, params);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span>(<span class="keyword">new</span> <a class="code" href="classTelegram_1_1User.html">Telegram::User</a>(obj[<span class="stringliteral">&quot;result&quot;</span>]));</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#acd21ba91f309c6d5fbcf7dc0063375ae">  100</a></span>&#160;<a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a> *<a class="code" href="classTelegram_1_1TelegramBot.html#acd21ba91f309c6d5fbcf7dc0063375ae">Telegram::TelegramBot::sendMessage</a>(std::string message, Json::Int64 chat_id) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a18326a958f926cdea62339899a29a1e1">   97</a></span>&#160;<a class="code" href="classTelegram_1_1User.html">Telegram::User</a> *<a class="code" href="classTelegram_1_1TelegramBot.html#a18326a958f926cdea62339899a29a1e1">Telegram::TelegramBot::getMe</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    Json::Value obj;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    std::map&lt;std::string, std::string&gt; params;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordflow">return</span>(this-&gt;sendMessage(message, <a class="code" href="example01_8cc.html#a0d2f37137ee1fd6ff4a0ef803849dd63">SSTR</a>(chat_id)));</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a592741f23db9675eb5e6ae60f6ee926b">  108</a></span>&#160;<a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>* <a class="code" href="classTelegram_1_1TelegramBot.html#acd21ba91f309c6d5fbcf7dc0063375ae">Telegram::TelegramBot::sendMessage</a>(std::string message, std::string chat_id) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    std::map&lt;std::string, std::string&gt; params;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    Json::Value obj;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    params[<span class="stringliteral">&quot;chat_id&quot;</span>] = chat_id;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    params[<span class="stringliteral">&quot;text&quot;</span>] = message;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    obj = this-&gt;apiRequestJson(<span class="stringliteral">&quot;sendMessage&quot;</span>, params);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span>(<span class="keyword">new</span> <a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>(obj[<span class="stringliteral">&quot;result&quot;</span>]));</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#adb9d623814ecbbeeefef4faa073b73c3">  124</a></span>&#160;<a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>* <a class="code" href="classTelegram_1_1TelegramBot.html#adb9d623814ecbbeeefef4faa073b73c3">Telegram::TelegramBot::sendPhoto</a>(std::string URL, Json::Int64 chat_id) {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span>(this-&gt;sendPhoto(URL, <a class="code" href="example01_8cc.html#a0d2f37137ee1fd6ff4a0ef803849dd63">SSTR</a>(chat_id)));</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a1f3a5159b2868b2aa7a84f3ca8f0104c">  132</a></span>&#160;<a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>* <a class="code" href="classTelegram_1_1TelegramBot.html#adb9d623814ecbbeeefef4faa073b73c3">Telegram::TelegramBot::sendPhoto</a>(std::string URL, std::string chat_id) {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    Json::Value obj;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    obj = this-&gt;apiRequestJson(<span class="stringliteral">&quot;getMe&quot;</span>, params);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span>(<span class="keyword">new</span> <a class="code" href="classTelegram_1_1User.html">Telegram::User</a>(obj[<span class="stringliteral">&quot;result&quot;</span>]));</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#acd21ba91f309c6d5fbcf7dc0063375ae">  115</a></span>&#160;<a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a> *<a class="code" href="classTelegram_1_1TelegramBot.html#acd21ba91f309c6d5fbcf7dc0063375ae">Telegram::TelegramBot::sendMessage</a>(std::string message, Json::Int64 chat_id) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordflow">return</span>(this-&gt;sendMessage(message, <a class="code" href="example01_8cc.html#a0d2f37137ee1fd6ff4a0ef803849dd63">SSTR</a>(chat_id)));</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a592741f23db9675eb5e6ae60f6ee926b">  128</a></span>&#160;<a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>* <a class="code" href="classTelegram_1_1TelegramBot.html#acd21ba91f309c6d5fbcf7dc0063375ae">Telegram::TelegramBot::sendMessage</a>(std::string message, std::string chat_id) {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    std::map&lt;std::string, std::string&gt; params;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    Json::Value obj;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    params[<span class="stringliteral">&quot;chat_id&quot;</span>] = chat_id;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    params[<span class="stringliteral">&quot;text&quot;</span>] = message;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    std::map&lt;std::string, std::string&gt; params;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    obj = this-&gt;apiRequestJson(<span class="stringliteral">&quot;sendMessage&quot;</span>, params);</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    params[<span class="stringliteral">&quot;chat_id&quot;</span>] = chat_id;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    params[<span class="stringliteral">&quot;photo&quot;</span>] = URL;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordflow">return</span>(<span class="keyword">new</span> <a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>(obj[<span class="stringliteral">&quot;result&quot;</span>]));</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    obj = this-&gt;apiRequestJson(<span class="stringliteral">&quot;sendPhoto&quot;</span>, params);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">return</span>(<span class="keyword">new</span> <a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>(obj[<span class="stringliteral">&quot;result&quot;</span>]));</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;}</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a7c54766f656974b35f03ea510d7b6a4f">  146</a></span>&#160;<a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a> *<a class="code" href="classTelegram_1_1TelegramBot.html#a7c54766f656974b35f03ea510d7b6a4f">Telegram::TelegramBot::getMessage</a>() {</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keywordflow">return</span>(this-&gt;msg);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#adb9d623814ecbbeeefef4faa073b73c3">  149</a></span>&#160;<a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>* <a class="code" href="classTelegram_1_1TelegramBot.html#adb9d623814ecbbeeefef4faa073b73c3">Telegram::TelegramBot::sendPhoto</a>(std::string URL, Json::Int64 chat_id) {</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#aae9aba06108ce34f9766199c6588e1d6">  151</a></span>&#160;<a class="code" href="namespaceTelegram.html#ad82f4bcddd3c7921e8842bb30170a1c2">Telegram::TCommandMap</a> <a class="code" href="classTelegram_1_1TelegramBot.html#aae9aba06108ce34f9766199c6588e1d6">Telegram::TelegramBot::getCommandMap</a>() {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <span class="keywordflow">return</span>(this-&gt;command_map);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">// Private methods</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#ae0d0fe5d54afcc9e6ee16b3d4f8ae895">  157</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classTelegram_1_1TelegramBot.html#ae0d0fe5d54afcc9e6ee16b3d4f8ae895">Telegram::TelegramBot::init</a>() {</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  std::cout &lt;&lt; <span class="stringliteral">&quot;Content-type: text/html\r\n\r\n&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;}</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a7e07f1ca99390958ef5c6c95cbf18258">  165</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classTelegram_1_1TelegramBot.html#a7e07f1ca99390958ef5c6c95cbf18258">Telegram::TelegramBot::apiRequest</a>(std::string method, std::map&lt;std::string, std::string&gt; parameters) {</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  parameters[<span class="stringliteral">&quot;method&quot;</span>] = method;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  Json::Value jValues;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  Json::StyledWriter w;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keywordflow">for</span>(std::map&lt;std::string, std::string&gt;::iterator it = parameters.begin(); it != parameters.end(); ++it) {</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    jValues[(*it).first] = (*it).second;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  }</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    cURLpp::Easy handle;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    std::string url = this-&gt;api_url + method + <span class="stringliteral">&quot;?&quot;</span> + <a class="code" href="http__build__query_8cc.html#a1e3cd58bbf46d30f168bbc0ee5cc486b">http_build_query</a>(parameters);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    handle.setOpt(cURLpp::Options::Url(url));</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    handle.setOpt(cURLpp::Options::ConnectTimeout(5));</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    handle.setOpt(cURLpp::Options::Timeout(60));</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    handle.perform(); <span class="comment">// Do the curl request</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordtype">int</span> code;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    code = cURLpp::Infos::ResponseCode::get(handle);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  }</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <span class="keywordflow">catch</span>(cURLpp::LogicError &amp;e) {</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  }</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keywordflow">catch</span>(cURLpp::RuntimeError &amp;e) {</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  }</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="keywordflow">catch</span>(std::exception &amp;e) {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  }</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;}</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">return</span>(this-&gt;sendPhoto(URL, <a class="code" href="example01_8cc.html#a0d2f37137ee1fd6ff4a0ef803849dd63">SSTR</a>(chat_id)));</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a1f3a5159b2868b2aa7a84f3ca8f0104c">  162</a></span>&#160;<a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>* <a class="code" href="classTelegram_1_1TelegramBot.html#adb9d623814ecbbeeefef4faa073b73c3">Telegram::TelegramBot::sendPhoto</a>(std::string URL, std::string chat_id) {</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    Json::Value obj;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    std::map&lt;std::string, std::string&gt; params;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    params[<span class="stringliteral">&quot;chat_id&quot;</span>] = chat_id;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    params[<span class="stringliteral">&quot;photo&quot;</span>] = URL;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">if</span> ((URL.substr(0, 8) == <span class="stringliteral">&quot;https://&quot;</span>) || (URL.substr(0, 7) == <span class="stringliteral">&quot;http://&quot;</span>)) {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        obj = this-&gt;apiRequestJson(<span class="stringliteral">&quot;sendPhoto&quot;</span>, params);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">if</span> (URL.substr(0, 7) == <span class="stringliteral">&quot;file://&quot;</span>) {</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        obj = this-&gt;apiRequestFile(URL.substr(7, std::string::npos), <span class="stringliteral">&quot;photo&quot;</span>, chat_id);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">return</span>(<span class="keyword">new</span> <a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a>(obj[<span class="stringliteral">&quot;result&quot;</span>]));</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;}</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a7c54766f656974b35f03ea510d7b6a4f">  182</a></span>&#160;<a class="code" href="classTelegram_1_1Message.html">Telegram::Message</a> *<a class="code" href="classTelegram_1_1TelegramBot.html#a7c54766f656974b35f03ea510d7b6a4f">Telegram::TelegramBot::getMessage</a>() {</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keywordflow">return</span>(this-&gt;msg);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#aae9aba06108ce34f9766199c6588e1d6">  192</a></span>&#160;<a class="code" href="namespaceTelegram.html#ad82f4bcddd3c7921e8842bb30170a1c2">Telegram::TCommandMap</a> <a class="code" href="classTelegram_1_1TelegramBot.html#aae9aba06108ce34f9766199c6588e1d6">Telegram::TelegramBot::getCommandMap</a>() {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="keywordflow">return</span>(this-&gt;command_map);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;}</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">// Private methods</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
-<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#aba249898870b8250da0ac67ba6a55e88">  202</a></span>&#160;Json::Value <a class="code" href="classTelegram_1_1TelegramBot.html#aba249898870b8250da0ac67ba6a55e88">Telegram::TelegramBot::apiRequestJson</a>(std::string method, std::map&lt;std::string, std::string&gt; parameters) {</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    std::stringstream result; <span class="comment">// Stores the result of the api call</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    parameters[<span class="stringliteral">&quot;method&quot;</span>] = method;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        cURLpp::Easy handle;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        std::list&lt;std::string&gt; header;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        header.push_back(<span class="stringliteral">&quot;Content-Type: application/json&quot;</span>);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        handle.setOpt(cURLpp::Options::Url(this-&gt;api_url));</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        handle.setOpt(cURLpp::Options::ConnectTimeout(5));</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        handle.setOpt(cURLpp::Options::Timeout(60));</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        handle.setOpt(cURLpp::Options::HttpHeader(header));</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        handle.setOpt(cURLpp::Options::PostFields(<a class="code" href="json__encode_8cc.html#ad8ce82c71c39fc700005394fccc714e2">json_encode</a>(parameters)));</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        handle.setOpt(cURLpp::Options::WriteStream(&amp;result));</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        handle.perform(); <span class="comment">// Do the curl request</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">catch</span>(cURLpp::LogicError &amp;e) {</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    }</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">catch</span>(cURLpp::RuntimeError &amp;e) {</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    }</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordflow">catch</span>(std::exception &amp;e) {</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    }</div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#ae0d0fe5d54afcc9e6ee16b3d4f8ae895">  203</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classTelegram_1_1TelegramBot.html#ae0d0fe5d54afcc9e6ee16b3d4f8ae895">Telegram::TelegramBot::init</a>() {</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  std::cout &lt;&lt; <span class="stringliteral">&quot;Content-type: text/html\r\n\r\n&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;}</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#a7e07f1ca99390958ef5c6c95cbf18258">  216</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classTelegram_1_1TelegramBot.html#a7e07f1ca99390958ef5c6c95cbf18258">Telegram::TelegramBot::apiRequest</a>(std::string method, std::map&lt;std::string, std::string&gt; parameters) {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  parameters[<span class="stringliteral">&quot;method&quot;</span>] = method;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  Json::Value jValues;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  Json::StyledWriter w;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  <span class="keywordflow">for</span>(std::map&lt;std::string, std::string&gt;::iterator it = parameters.begin(); it != parameters.end(); ++it) {</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    jValues[(*it).first] = (*it).second;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    cURLpp::Easy handle;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    std::string url = this-&gt;api_url + method + <span class="stringliteral">&quot;?&quot;</span> + <a class="code" href="http__build__query_8cc.html#a1e3cd58bbf46d30f168bbc0ee5cc486b">http_build_query</a>(parameters);</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    Json::Reader jreader;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    Json::Value obj;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    jreader.parse(result.str(), obj);</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordflow">return</span> (obj);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;}</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
-<div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#aed4dd1ce506259c0e82f0c46fe125ca4">  238</a></span>&#160;std::string <a class="code" href="classTelegram_1_1TelegramBot.html#aed4dd1ce506259c0e82f0c46fe125ca4">Telegram::TelegramBot::processCommand</a>(std::string cmd) {</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="comment">// Process command</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  std::string sCommand;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  std::string sResult;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  std::vector&lt;std::string&gt; vCmdLine = <a class="code" href="std_8cc.html#ae7427d6dcae9b9190db26d2e1b6700af">split</a>(cmd, <span class="charliteral">&#39; &#39;</span>);</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <span class="keywordflow">if</span>((vCmdLine.size() &gt; 0) &amp;&amp; (this-&gt;command_map.find(vCmdLine[0]) != this-&gt;command_map.end())) {</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    sCommand = vCmdLine[0];</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    vCmdLine.erase(vCmdLine.begin()); <span class="comment">// First value is the command itself</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <a class="code" href="structTelegram_1_1TCommand.html">TCommand</a> cs = this-&gt;command_map[sCommand];</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    sResult = (*cs.<a class="code" href="structTelegram_1_1TCommand.html#a3f2c8ecbfd34be25baa577afee2e6e52">callback</a>)(<span class="keyword">this</span>, vCmdLine);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    sResult = <span class="stringliteral">&quot;Unknown command&quot;</span>;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  }</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <span class="keywordflow">return</span>(sResult);</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;}</div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_ae0d0fe5d54afcc9e6ee16b3d4f8ae895"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#ae0d0fe5d54afcc9e6ee16b3d4f8ae895">Telegram::TelegramBot::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00157">TelegramBot.cc:157</a></div></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    handle.setOpt(cURLpp::Options::Url(url));</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    handle.setOpt(cURLpp::Options::ConnectTimeout(5));</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    handle.setOpt(cURLpp::Options::Timeout(60));</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    handle.perform(); <span class="comment">// Do the curl request</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">int</span> code;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    code = cURLpp::Infos::ResponseCode::get(handle);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keywordflow">catch</span>(cURLpp::LogicError &amp;e) {</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  <span class="keywordflow">catch</span>(cURLpp::RuntimeError &amp;e) {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  }</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <span class="keywordflow">catch</span>(std::exception &amp;e) {</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  }</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;}</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#aba249898870b8250da0ac67ba6a55e88">  258</a></span>&#160;Json::Value <a class="code" href="classTelegram_1_1TelegramBot.html#aba249898870b8250da0ac67ba6a55e88">Telegram::TelegramBot::apiRequestJson</a>(std::string method, std::map&lt;std::string, std::string&gt; parameters) {</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    std::stringstream result; <span class="comment">// Stores the result of the api call</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    parameters[<span class="stringliteral">&quot;method&quot;</span>] = method;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        cURLpp::Easy handle;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        cURLpp::Cleanup cleaner;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        std::list&lt;std::string&gt; header;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        header.push_back(<span class="stringliteral">&quot;Content-Type: application/json&quot;</span>);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        handle.setOpt(cURLpp::Options::Url(this-&gt;api_url));</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        handle.setOpt(cURLpp::Options::ConnectTimeout(5));</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        handle.setOpt(cURLpp::Options::Timeout(60));</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        handle.setOpt(cURLpp::Options::HttpHeader(header));</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        handle.setOpt(cURLpp::Options::PostFields(<a class="code" href="json__encode_8cc.html#ad8ce82c71c39fc700005394fccc714e2">json_encode</a>(parameters)));</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        handle.setOpt(cURLpp::Options::WriteStream(&amp;result));</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        handle.perform(); <span class="comment">// Do the curl request</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    }</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">catch</span>(cURLpp::LogicError &amp;e) {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    }</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">catch</span>(cURLpp::RuntimeError &amp;e) {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    }</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">catch</span>(std::exception &amp;e) {</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    Json::Reader jreader;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    Json::Value obj;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    jreader.parse(result.str(), obj);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordflow">return</span> (obj);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;}</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#afc52db678c8dacb568075b8c013eafde">  305</a></span>&#160;Json::Value <a class="code" href="classTelegram_1_1TelegramBot.html#afc52db678c8dacb568075b8c013eafde">Telegram::TelegramBot::apiRequestFile</a>(std::string filename, std::string type, std::string chat_id) {</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    std::stringstream result; <span class="comment">// Stores the result of the api call</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    cURLpp::Forms formParts; <span class="comment">// Parts to be sent</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        cURLpp::Easy handle;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        cURLpp::Cleanup cleaner;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        handle.setOpt(cURLpp::Options::Url(this-&gt;api_url + <span class="stringliteral">&quot;send&quot;</span> + type));</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        {</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            cURLpp::Forms parts;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            parts.push_back(<span class="keyword">new</span> cURLpp::FormParts::Content(<span class="stringliteral">&quot;chat_id&quot;</span>, chat_id));</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            parts.push_back(<span class="keyword">new</span> cURLpp::FormParts::File(type, filename));</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            handle.setOpt(cURLpp::Options::HttpPost(parts));</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        }</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        handle.perform();</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">catch</span>(cURLpp::LogicError &amp;e) {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    }</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">catch</span>(cURLpp::RuntimeError &amp;e) {</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    }</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">catch</span>(std::exception &amp;e) {</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <a class="code" href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a>(e.what());</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    }</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    Json::Reader jreader;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    Json::Value obj;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    jreader.parse(result.str(), obj);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordflow">return</span> (obj);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;}</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;</div>
+<div class="line"><a name="l00352"></a><span class="lineno"><a class="line" href="classTelegram_1_1TelegramBot.html#aed4dd1ce506259c0e82f0c46fe125ca4">  352</a></span>&#160;std::string <a class="code" href="classTelegram_1_1TelegramBot.html#aed4dd1ce506259c0e82f0c46fe125ca4">Telegram::TelegramBot::processCommand</a>(std::string cmd) {</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  <span class="comment">// Process command</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  std::string sCommand;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  std::string sResult;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;  std::vector&lt;std::string&gt; vCmdLine = <a class="code" href="std_8cc.html#ae7427d6dcae9b9190db26d2e1b6700af">split</a>(cmd, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;  <span class="keywordflow">if</span>((vCmdLine.size() &gt; 0) &amp;&amp; (this-&gt;command_map.find(vCmdLine[0]) != this-&gt;command_map.end())) {</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    sCommand = vCmdLine[0];</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    vCmdLine.erase(vCmdLine.begin()); <span class="comment">// First value is the command itself</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <a class="code" href="structTelegram_1_1TCommand.html">TCommand</a> cs = this-&gt;command_map[sCommand];</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    sResult = (*cs.<a class="code" href="structTelegram_1_1TCommand.html#a3f2c8ecbfd34be25baa577afee2e6e52">callback</a>)(<span class="keyword">this</span>, vCmdLine);</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    sResult = <span class="stringliteral">&quot;Unknown command&quot;</span>;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;  }</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;  <span class="keywordflow">return</span>(sResult);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;}</div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_ae0d0fe5d54afcc9e6ee16b3d4f8ae895"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#ae0d0fe5d54afcc9e6ee16b3d4f8ae895">Telegram::TelegramBot::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00203">TelegramBot.cc:203</a></div></div>
 <div class="ttc" id="structTelegram_1_1TCommand_html_a1c051d162e478b9f98efafbeeed19f9b"><div class="ttname"><a href="structTelegram_1_1TCommand.html#a1c051d162e478b9f98efafbeeed19f9b">Telegram::TCommand::command</a></div><div class="ttdeci">std::string command</div><div class="ttdoc">The command, e.g. /help. </div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8h_source.html#l00027">TelegramBot.h:27</a></div></div>
 <div class="ttc" id="Message_8h_html"><div class="ttname"><a href="Message_8h.html">Message.h</a></div></div>
 <div class="ttc" id="example01_8cc_html_a0d2f37137ee1fd6ff4a0ef803849dd63"><div class="ttname"><a href="example01_8cc.html#a0d2f37137ee1fd6ff4a0ef803849dd63">SSTR</a></div><div class="ttdeci">#define SSTR(x)</div><div class="ttdef"><b>Definition:</b> <a href="example01_8cc_source.html#l00035">example01.cc:35</a></div></div>
 <div class="ttc" id="classTelegram_1_1Message_html"><div class="ttname"><a href="classTelegram_1_1Message.html">Telegram::Message</a></div><div class="ttdef"><b>Definition:</b> <a href="Message_8h_source.html#l00027">Message.h:27</a></div></div>
 <div class="ttc" id="std_8cc_html_ae7427d6dcae9b9190db26d2e1b6700af"><div class="ttname"><a href="std_8cc.html#ae7427d6dcae9b9190db26d2e1b6700af">split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; split(const std::string &amp;text, char sep)</div><div class="ttdef"><b>Definition:</b> <a href="std_8cc_source.html#l00042">std.cc:42</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_a18326a958f926cdea62339899a29a1e1"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#a18326a958f926cdea62339899a29a1e1">Telegram::TelegramBot::getMe</a></div><div class="ttdeci">Telegram::User * getMe(void)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00087">TelegramBot.cc:87</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_aabd1a825b1d7f127f15bf336b985d70d"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#aabd1a825b1d7f127f15bf336b985d70d">Telegram::TelegramBot::setWebhook</a></div><div class="ttdeci">void setWebhook(std::string)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00060">TelegramBot.cc:60</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_af6fbb842f679b33dd8a60f94f82d7c81"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#af6fbb842f679b33dd8a60f94f82d7c81">Telegram::TelegramBot::processMessage</a></div><div class="ttdeci">void processMessage(std::string)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00074">TelegramBot.cc:74</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_a7e07f1ca99390958ef5c6c95cbf18258"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#a7e07f1ca99390958ef5c6c95cbf18258">Telegram::TelegramBot::apiRequest</a></div><div class="ttdeci">void apiRequest(std::string, std::map&lt; std::string, std::string &gt;)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00165">TelegramBot.cc:165</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_aae9aba06108ce34f9766199c6588e1d6"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#aae9aba06108ce34f9766199c6588e1d6">Telegram::TelegramBot::getCommandMap</a></div><div class="ttdeci">std::map&lt; std::string, TCommand &gt; getCommandMap()</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00151">TelegramBot.cc:151</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_aed4dd1ce506259c0e82f0c46fe125ca4"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#aed4dd1ce506259c0e82f0c46fe125ca4">Telegram::TelegramBot::processCommand</a></div><div class="ttdeci">std::string processCommand(std::string)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00238">TelegramBot.cc:238</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_a18326a958f926cdea62339899a29a1e1"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#a18326a958f926cdea62339899a29a1e1">Telegram::TelegramBot::getMe</a></div><div class="ttdeci">Telegram::User * getMe(void)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00097">TelegramBot.cc:97</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_aabd1a825b1d7f127f15bf336b985d70d"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#aabd1a825b1d7f127f15bf336b985d70d">Telegram::TelegramBot::setWebhook</a></div><div class="ttdeci">void setWebhook(std::string)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00065">TelegramBot.cc:65</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_afc52db678c8dacb568075b8c013eafde"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#afc52db678c8dacb568075b8c013eafde">Telegram::TelegramBot::apiRequestFile</a></div><div class="ttdeci">Json::Value apiRequestFile(std::string, std::string, std::string)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00305">TelegramBot.cc:305</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_af6fbb842f679b33dd8a60f94f82d7c81"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#af6fbb842f679b33dd8a60f94f82d7c81">Telegram::TelegramBot::processMessage</a></div><div class="ttdeci">void processMessage(std::string)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00079">TelegramBot.cc:79</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_a7e07f1ca99390958ef5c6c95cbf18258"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#a7e07f1ca99390958ef5c6c95cbf18258">Telegram::TelegramBot::apiRequest</a></div><div class="ttdeci">void apiRequest(std::string, std::map&lt; std::string, std::string &gt;)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00216">TelegramBot.cc:216</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_aae9aba06108ce34f9766199c6588e1d6"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#aae9aba06108ce34f9766199c6588e1d6">Telegram::TelegramBot::getCommandMap</a></div><div class="ttdeci">std::map&lt; std::string, TCommand &gt; getCommandMap()</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00192">TelegramBot.cc:192</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_aed4dd1ce506259c0e82f0c46fe125ca4"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#aed4dd1ce506259c0e82f0c46fe125ca4">Telegram::TelegramBot::processCommand</a></div><div class="ttdeci">std::string processCommand(std::string)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00352">TelegramBot.cc:352</a></div></div>
 <div class="ttc" id="structTelegram_1_1TCommand_html"><div class="ttname"><a href="structTelegram_1_1TCommand.html">Telegram::TCommand</a></div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8h_source.html#l00026">TelegramBot.h:26</a></div></div>
 <div class="ttc" id="TelegramBot_8h_html"><div class="ttname"><a href="TelegramBot_8h.html">TelegramBot.h</a></div></div>
 <div class="ttc" id="http__build__query_8h_html"><div class="ttname"><a href="http__build__query_8h.html">http_build_query.h</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_a99b561e695953e6b69a3ddf6937a4811"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#a99b561e695953e6b69a3ddf6937a4811">Telegram::TelegramBot::TelegramBot</a></div><div class="ttdeci">TelegramBot()</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00022">TelegramBot.cc:22</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_a99b561e695953e6b69a3ddf6937a4811"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#a99b561e695953e6b69a3ddf6937a4811">Telegram::TelegramBot::TelegramBot</a></div><div class="ttdeci">TelegramBot()</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00024">TelegramBot.cc:24</a></div></div>
 <div class="ttc" id="structTelegram_1_1TCommand_html_a3f2c8ecbfd34be25baa577afee2e6e52"><div class="ttname"><a href="structTelegram_1_1TCommand.html#a3f2c8ecbfd34be25baa577afee2e6e52">Telegram::TCommand::callback</a></div><div class="ttdeci">CommandCallback callback</div><div class="ttdoc">Pointer to the callback function. </div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8h_source.html#l00028">TelegramBot.h:28</a></div></div>
 <div class="ttc" id="std_8cc_html_a55fa50be9360d756a7cf448d7e9e0cc9"><div class="ttname"><a href="std_8cc.html#a55fa50be9360d756a7cf448d7e9e0cc9">Log</a></div><div class="ttdeci">void Log(std::string msg)</div><div class="ttdef"><b>Definition:</b> <a href="std_8cc_source.html#l00091">std.cc:91</a></div></div>
 <div class="ttc" id="std_8h_html"><div class="ttname"><a href="std_8h.html">std.h</a></div></div>
 <div class="ttc" id="namespaceTelegram_html_ad82f4bcddd3c7921e8842bb30170a1c2"><div class="ttname"><a href="namespaceTelegram.html#ad82f4bcddd3c7921e8842bb30170a1c2">Telegram::TCommandMap</a></div><div class="ttdeci">std::map&lt; std::string, TCommand &gt; TCommandMap</div><div class="ttdoc">Map that stores the known commands. </div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8h_source.html#l00031">TelegramBot.h:31</a></div></div>
 <div class="ttc" id="TelegramBot_8cc_html_a47cbcc6d148fe0c8f9fb95966026aa97"><div class="ttname"><a href="TelegramBot_8cc.html#a47cbcc6d148fe0c8f9fb95966026aa97">API_URL</a></div><div class="ttdeci">#define API_URL</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00017">TelegramBot.cc:17</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_a398bd76186e27d514afd835c5437c6ed"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#a398bd76186e27d514afd835c5437c6ed">Telegram::TelegramBot::addCommand</a></div><div class="ttdeci">void addCommand(TCommand)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00044">TelegramBot.cc:44</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_a7c54766f656974b35f03ea510d7b6a4f"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#a7c54766f656974b35f03ea510d7b6a4f">Telegram::TelegramBot::getMessage</a></div><div class="ttdeci">Telegram::Message * getMessage()</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00146">TelegramBot.cc:146</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_a398bd76186e27d514afd835c5437c6ed"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#a398bd76186e27d514afd835c5437c6ed">Telegram::TelegramBot::addCommand</a></div><div class="ttdeci">void addCommand(TCommand)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00049">TelegramBot.cc:49</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_a7c54766f656974b35f03ea510d7b6a4f"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#a7c54766f656974b35f03ea510d7b6a4f">Telegram::TelegramBot::getMessage</a></div><div class="ttdeci">Telegram::Message * getMessage()</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00182">TelegramBot.cc:182</a></div></div>
 <div class="ttc" id="MessageEntity_8h_html"><div class="ttname"><a href="MessageEntity_8h.html">MessageEntity.h</a></div></div>
 <div class="ttc" id="namespaceTelegram_html_aa7927193a64b09836112d3be24c45d85"><div class="ttname"><a href="namespaceTelegram.html#aa7927193a64b09836112d3be24c45d85">Telegram::TMessageEntities</a></div><div class="ttdeci">std::vector&lt; Telegram::MessageEntity * &gt; TMessageEntities</div><div class="ttdef"><b>Definition:</b> <a href="MessageEntity_8h_source.html#l00023">MessageEntity.h:23</a></div></div>
 <div class="ttc" id="json__encode_8h_html"><div class="ttname"><a href="json__encode_8h.html">json_encode.h</a></div></div>
 <div class="ttc" id="classTelegram_1_1User_html"><div class="ttname"><a href="classTelegram_1_1User.html">Telegram::User</a></div><div class="ttdef"><b>Definition:</b> <a href="User_8h_source.html#l00009">User.h:9</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_aba249898870b8250da0ac67ba6a55e88"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#aba249898870b8250da0ac67ba6a55e88">Telegram::TelegramBot::apiRequestJson</a></div><div class="ttdeci">Json::Value apiRequestJson(std::string, std::map&lt; std::string, std::string &gt;)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00202">TelegramBot.cc:202</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_aba249898870b8250da0ac67ba6a55e88"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#aba249898870b8250da0ac67ba6a55e88">Telegram::TelegramBot::apiRequestJson</a></div><div class="ttdeci">Json::Value apiRequestJson(std::string, std::map&lt; std::string, std::string &gt;)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00258">TelegramBot.cc:258</a></div></div>
 <div class="ttc" id="http__build__query_8cc_html_a1e3cd58bbf46d30f168bbc0ee5cc486b"><div class="ttname"><a href="http__build__query_8cc.html#a1e3cd58bbf46d30f168bbc0ee5cc486b">http_build_query</a></div><div class="ttdeci">std::string http_build_query(std::map&lt; std::string, std::string &gt; data)</div><div class="ttdef"><b>Definition:</b> <a href="http__build__query_8cc_source.html#l00003">http_build_query.cc:3</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_adb9d623814ecbbeeefef4faa073b73c3"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#adb9d623814ecbbeeefef4faa073b73c3">Telegram::TelegramBot::sendPhoto</a></div><div class="ttdeci">Telegram::Message * sendPhoto(std::string, Json::Int64)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00124">TelegramBot.cc:124</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_adb9d623814ecbbeeefef4faa073b73c3"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#adb9d623814ecbbeeefef4faa073b73c3">Telegram::TelegramBot::sendPhoto</a></div><div class="ttdeci">Telegram::Message * sendPhoto(std::string, Json::Int64)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00149">TelegramBot.cc:149</a></div></div>
 <div class="ttc" id="json__encode_8cc_html_ad8ce82c71c39fc700005394fccc714e2"><div class="ttname"><a href="json__encode_8cc.html#ad8ce82c71c39fc700005394fccc714e2">json_encode</a></div><div class="ttdeci">std::string json_encode(std::map&lt; std::string, std::string &gt; parameters)</div><div class="ttdef"><b>Definition:</b> <a href="json__encode_8cc_source.html#l00003">json_encode.cc:3</a></div></div>
-<div class="ttc" id="classTelegram_1_1TelegramBot_html_acd21ba91f309c6d5fbcf7dc0063375ae"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#acd21ba91f309c6d5fbcf7dc0063375ae">Telegram::TelegramBot::sendMessage</a></div><div class="ttdeci">Telegram::Message * sendMessage(std::string, Json::Int64)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00100">TelegramBot.cc:100</a></div></div>
+<div class="ttc" id="classTelegram_1_1TelegramBot_html_acd21ba91f309c6d5fbcf7dc0063375ae"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#acd21ba91f309c6d5fbcf7dc0063375ae">Telegram::TelegramBot::sendMessage</a></div><div class="ttdeci">Telegram::Message * sendMessage(std::string, Json::Int64)</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8cc_source.html#l00115">TelegramBot.cc:115</a></div></div>
 <div class="ttc" id="classTelegram_1_1TelegramBot_html_a1ca971ccfb242f7b8656eca3ab7666dd"><div class="ttname"><a href="classTelegram_1_1TelegramBot.html#a1ca971ccfb242f7b8656eca3ab7666dd">Telegram::TelegramBot::api_url</a></div><div class="ttdeci">std::string api_url</div><div class="ttdef"><b>Definition:</b> <a href="TelegramBot_8h_source.html#l00055">TelegramBot.h:55</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -354,7 +401,7 @@ $(document).ready(function(){initNavTree('TelegramBot_8cc_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="TelegramBot_8cc.html">TelegramBot.cc</a></li>
-    <li class="footer">Generated on Tue Jun 6 2017 14:48:45 for LibTgBotPP by
+    <li class="footer">Generated on Wed Jun 7 2017 20:37:38 for LibTgBotPP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

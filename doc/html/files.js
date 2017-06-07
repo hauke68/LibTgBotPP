@@ -17,6 +17,7 @@ var files =
       [ "Document", "classTelegram_1_1Document.html", "classTelegram_1_1Document" ]
     ] ],
     [ "example01.cc", "example01_8cc.html", "example01_8cc" ],
+    [ "example02.cc", "example02_8cc.html", "example02_8cc" ],
     [ "http_build_query.cc", "http__build__query_8cc.html", "http__build__query_8cc" ],
     [ "http_build_query.h", "http__build__query_8h.html", "http__build__query_8h" ],
     [ "json_encode.cc", "json__encode_8cc.html", "json__encode_8cc" ],
