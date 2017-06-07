@@ -17,7 +17,9 @@
 #define API_URL "https://api.telegram.org/bot"
 
 /**
- *Constructor of Bot
+ * Constructor of Bot
+ *
+ * Calls init
  */
 Telegram::TelegramBot::TelegramBot() {
 
@@ -28,7 +30,10 @@ Telegram::TelegramBot::TelegramBot() {
 /**
  * Constructor of bot
  *
- * @param token a std::string
+ * Sets the API URL and calls init
+ *
+ * @param token a std::string storing the bot token
+ *
  */
 Telegram::TelegramBot::TelegramBot(std::string token) {
 
@@ -84,6 +89,11 @@ void Telegram::TelegramBot::processMessage(std::string message) {
   }
 }
 
+/**
+ * A simple command to the API to get some information about the bot.
+ *
+ * @return Telegram::User* a pointer of an object of type Telegram::User
+ */
 Telegram::User *Telegram::TelegramBot::getMe(void) {
 
 	Json::Value obj;
@@ -95,7 +105,12 @@ Telegram::User *Telegram::TelegramBot::getMe(void) {
 }
 
 /**
- * Send a text message to a user
+ * Send a text message to a user or group
+ *
+ * @param message The text of the message
+ * @param chat_id the chat id
+ *
+ * @return A pointer to a Telegram message object
  */
 Telegram::Message *Telegram::TelegramBot::sendMessage(std::string message, Json::Int64 chat_id) {
 
@@ -104,6 +119,11 @@ Telegram::Message *Telegram::TelegramBot::sendMessage(std::string message, Json:
 
 /**
  * sendMessage sends a simple text message to a given chat (might be a user or a group)
+ *
+ * @param message The text of the message
+ * @param chat_id the chat id
+ *
+ * @return A pointer to a Telegram message object
  */
 Telegram::Message* Telegram::TelegramBot::sendMessage(std::string message, std::string chat_id) {
 
@@ -120,6 +140,11 @@ Telegram::Message* Telegram::TelegramBot::sendMessage(std::string message, std::
 
 /**
  * Sends a picture from the internet to a chat
+ *
+ * @param URL The URL of the picture
+ * @param chat_id the chat id
+ *
+ * @return A pointer to a Telegram message object
  */
 Telegram::Message* Telegram::TelegramBot::sendPhoto(std::string URL, Json::Int64 chat_id) {
 
@@ -128,6 +153,11 @@ Telegram::Message* Telegram::TelegramBot::sendPhoto(std::string URL, Json::Int64
 
 /**
  * Sends a picture from the internet to a chat
+ *
+ * @param URL The URL of the picture
+ * @param chat_id the chat id
+ *
+ * @return A pointer to a Telegram message object
  */
 Telegram::Message* Telegram::TelegramBot::sendPhoto(std::string URL, std::string chat_id) {
 
@@ -154,12 +184,22 @@ Telegram::Message *Telegram::TelegramBot::getMessage() {
   return(this->msg);
 }
 
+/**
+ * getCommandMap return the complete command list of the bot
+ *
+ * @return Map of the commands
+ */
 Telegram::TCommandMap Telegram::TelegramBot::getCommandMap() {
 
   return(this->command_map);
 }
 
 // Private methods
+
+/**
+ * inits the bot. That is only sending a content-type to stdout in case
+ * one uses the bot by an CGI script
+ */
 void Telegram::TelegramBot::init() {
 
   std::cout << "Content-type: text/html\r\n\r\n" << std::endl;
@@ -167,6 +207,11 @@ void Telegram::TelegramBot::init() {
 
 /**
  * A generic API request
+ *
+ * Might be removed in future!
+ *
+ * @param method might be sendPhoto, sendMessage or any command defined by Telegram's API
+ * @param parameters a map of further parameters, needed by the API call
  */
 void Telegram::TelegramBot::apiRequest(std::string method, std::map<std::string, std::string> parameters) {
 
@@ -204,6 +249,11 @@ void Telegram::TelegramBot::apiRequest(std::string method, std::map<std::string,
 
 /**
  * An API request, posting JSON data
+ *
+ * @param method might be "sendPhoto", "sendMessage" or anything else, defined by the Telegram API
+ * @param parameters further parameters to the API call (e.g. the text of a message)
+ *
+ * @return the JSON structure, sent back by Telegram's API
  */
 Json::Value Telegram::TelegramBot::apiRequestJson(std::string method, std::map<std::string, std::string> parameters) {
 
@@ -246,9 +296,9 @@ Json::Value Telegram::TelegramBot::apiRequestJson(std::string method, std::map<s
 /**
  * Sending a file by InputFile object
  *
- * @param filename
- * @param type
- * @param chat_id
+ * @param filename a valid file name
+ * @param type may be photo, document, video
+ * @param chat_id a valid chat id (might be a user or a group chat)
  *
  * @return result Json::Value
  */
@@ -286,8 +336,19 @@ Json::Value Telegram::TelegramBot::apiRequestFile(std::string filename, std::str
 	Json::Value obj;
 	jreader.parse(result.str(), obj);
 
-	return (obj);}
+	return (obj);
+}
 
+/**
+ * processCommand gets a command by the user (e.g. /start) and processes
+ * the command.
+ * The command should be added to the command list by addCommand before,
+ * otherwise "Unknwon command" is returned
+ *
+ * @param cmd the command, defined in the command list (e.g. /start)
+ *
+ * @return the output of the command
+ */
 std::string Telegram::TelegramBot::processCommand(std::string cmd) {
 
   // Process command
