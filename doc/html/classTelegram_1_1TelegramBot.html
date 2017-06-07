@@ -149,6 +149,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a7e07f1ca99390958ef5c6c95cbf18258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba249898870b8250da0ac67ba6a55e88"><td class="memItemLeft" align="right" valign="top">Json::Value&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelegram_1_1TelegramBot.html#aba249898870b8250da0ac67ba6a55e88">apiRequestJson</a> (std::string, std::map&lt; std::string, std::string &gt;)</td></tr>
 <tr class="separator:aba249898870b8250da0ac67ba6a55e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc52db678c8dacb568075b8c013eafde"><td class="memItemLeft" align="right" valign="top">Json::Value&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelegram_1_1TelegramBot.html#afc52db678c8dacb568075b8c013eafde">apiRequestFile</a> (std::string, std::string, std::string)</td></tr>
+<tr class="separator:afc52db678c8dacb568075b8c013eafde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed4dd1ce506259c0e82f0c46fe125ca4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTelegram_1_1TelegramBot.html#aed4dd1ce506259c0e82f0c46fe125ca4">processCommand</a> (std::string)</td></tr>
 <tr class="separator:aed4dd1ce506259c0e82f0c46fe125ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -179,9 +181,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor of Bot </p>
+<p>Constructor of Bot</p>
+<p>Calls init </p>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00022">22</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00024">24</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -199,14 +202,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Constructor of bot</p>
+<p>Sets the API URL and calls init</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">token</td><td>a std::string </td></tr>
+    <tr><td class="paramname">token</td><td>a std::string storing the bot token </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00033">33</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00038">38</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -232,7 +236,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00044">44</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00049">49</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -267,9 +271,69 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>A generic API request </p>
+<p>A generic API request</p>
+<p>Might be removed in future!</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">method</td><td>might be sendPhoto, sendMessage or any command defined by <a class="el" href="namespaceTelegram.html">Telegram</a>'s API </td></tr>
+    <tr><td class="paramname">parameters</td><td>a map of further parameters, needed by the API call </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00165">165</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00216">216</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afc52db678c8dacb568075b8c013eafde"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Json::Value Telegram::TelegramBot::apiRequestFile </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>chat_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sending a file by InputFile object</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>a valid file name </td></tr>
+    <tr><td class="paramname">type</td><td>may be photo, document, video </td></tr>
+    <tr><td class="paramname">chat_id</td><td>a valid chat id (might be a user or a group chat)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>result Json::Value </dd></dl>
+
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00305">305</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -304,9 +368,17 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>An API request, posting JSON data </p>
+<p>An API request, posting JSON data</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">method</td><td>might be "sendPhoto", "sendMessage" or anything else, defined by the <a class="el" href="namespaceTelegram.html">Telegram</a> API </td></tr>
+    <tr><td class="paramname">parameters</td><td>further parameters to the API call (e.g. the text of a message)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the JSON structure, sent back by <a class="el" href="namespaceTelegram.html">Telegram</a>'s API </dd></dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00202">202</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00258">258</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -322,8 +394,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>getCommandMap return the complete command list of the bot</p>
+<dl class="section return"><dt>Returns</dt><dd>Map of the commands </dd></dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00151">151</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00192">192</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -340,8 +414,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A simple command to the API to get some information about the bot.</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classTelegram_1_1User.html">Telegram::User</a>* a pointer of an object of type <a class="el" href="classTelegram_1_1User.html">Telegram::User</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00087">87</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00097">97</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -358,7 +434,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00146">146</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00182">182</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -383,8 +459,9 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>inits the bot. That is only sending a content-type to stdout in case one uses the bot by an CGI script </p>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00157">157</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00203">203</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -409,8 +486,16 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>processCommand gets a command by the user (e.g. /start) and processes the command. The command should be added to the command list by addCommand before, otherwise "Unknwon command" is returned</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>the command, defined in the command list (e.g. /start)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the output of the command </dd></dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00238">238</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00352">352</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -435,7 +520,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00074">74</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00079">79</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -462,9 +547,17 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Send a text message to a user </p>
+<p>Send a text message to a user or group</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The text of the message </td></tr>
+    <tr><td class="paramname">chat_id</td><td>the chat id</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a <a class="el" href="namespaceTelegram.html">Telegram</a> message object </dd></dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00100">100</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00115">115</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -491,9 +584,17 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>sendMessage sends a simple text message to a given chat (might be a user or a group) </p>
+<p>sendMessage sends a simple text message to a given chat (might be a user or a group)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The text of the message </td></tr>
+    <tr><td class="paramname">chat_id</td><td>the chat id</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a <a class="el" href="namespaceTelegram.html">Telegram</a> message object </dd></dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00108">108</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00128">128</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -520,9 +621,17 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sends a picture from the internet to a chat </p>
+<p>Sends a picture from the internet to a chat</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">URL</td><td>The URL of the picture </td></tr>
+    <tr><td class="paramname">chat_id</td><td>the chat id</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a <a class="el" href="namespaceTelegram.html">Telegram</a> message object </dd></dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00124">124</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00149">149</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -549,9 +658,17 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sends a picture from the internet to a chat </p>
+<p>Sends a picture from the internet to a chat</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">URL</td><td>The URL of the picture </td></tr>
+    <tr><td class="paramname">chat_id</td><td>the chat id</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a <a class="el" href="namespaceTelegram.html">Telegram</a> message object </dd></dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00132">132</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00162">162</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -576,7 +693,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00060">60</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
+<p>Definition at line <a class="el" href="TelegramBot_8cc_source.html#l00065">65</a> of file <a class="el" href="TelegramBot_8cc_source.html">TelegramBot.cc</a>.</p>
 
 </div>
 </div>
@@ -679,7 +796,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceTelegram.html">Telegram</a></li><li class="navelem"><a class="el" href="classTelegram_1_1TelegramBot.html">TelegramBot</a></li>
-    <li class="footer">Generated on Tue Jun 6 2017 14:48:45 for LibTgBotPP by
+    <li class="footer">Generated on Wed Jun 7 2017 20:28:17 for LibTgBotPP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
