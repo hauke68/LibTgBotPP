@@ -60,6 +60,7 @@ namespace Telegram {
     void init();
     void apiRequest(std::string, std::map<std::string, std::string>);
     Json::Value apiRequestJson(std::string, std::map<std::string, std::string>);
+    Json::Value apiRequestFile(std::string, std::string, std::string);
     std::string processCommand(std::string);
   };
 }
