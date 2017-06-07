@@ -138,7 +138,13 @@ Telegram::Message* Telegram::TelegramBot::sendPhoto(std::string URL, std::string
 	params["chat_id"] = chat_id;
 	params["photo"] = URL;
 
-	obj = this->apiRequestJson("sendPhoto", params);
+	if ((URL.substr(0, 8) == "https://") || (URL.substr(0, 7) == "http://")) {
+		obj = this->apiRequestJson("sendPhoto", params);
+	}
+
+	if (URL.substr(0, 7) == "file://") {
+		obj = this->apiRequestFile(URL.substr(7, std::string::npos), "photo", chat_id);
+	}
 
 	return(new Telegram::Message(obj["result"]));
 }
@@ -206,6 +212,8 @@ Json::Value Telegram::TelegramBot::apiRequestJson(std::string method, std::map<s
 
 	try {
 		cURLpp::Easy handle;
+		cURLpp::Cleanup cleaner;
+
 		std::list<std::string> header;
 		header.push_back("Content-Type: application/json");
 
@@ -234,6 +242,51 @@ Json::Value Telegram::TelegramBot::apiRequestJson(std::string method, std::map<s
 
 	return (obj);
 }
+
+/**
+ * Sending a file by InputFile object
+ *
+ * @param filename
+ * @param type
+ * @param chat_id
+ *
+ * @return result Json::Value
+ */
+Json::Value Telegram::TelegramBot::apiRequestFile(std::string filename, std::string type, std::string chat_id) {
+
+	std::stringstream result; // Stores the result of the api call
+	cURLpp::Forms formParts; // Parts to be sent
+
+	try {
+		cURLpp::Easy handle;
+		cURLpp::Cleanup cleaner;
+
+		handle.setOpt(cURLpp::Options::Url(this->api_url + "send" + type));
+		{
+			cURLpp::Forms parts;
+			parts.push_back(new cURLpp::FormParts::Content("chat_id", chat_id));
+			parts.push_back(new cURLpp::FormParts::File(type, filename));
+			handle.setOpt(cURLpp::Options::HttpPost(parts));
+		}
+
+		handle.perform();
+
+	}
+	catch(cURLpp::LogicError &e) {
+		Log(e.what());
+	}
+	catch(cURLpp::RuntimeError &e) {
+		Log(e.what());
+	}
+	catch(std::exception &e) {
+		Log(e.what());
+	}
+
+	Json::Reader jreader;
+	Json::Value obj;
+	jreader.parse(result.str(), obj);
+
+	return (obj);}
 
 std::string Telegram::TelegramBot::processCommand(std::string cmd) {
 
