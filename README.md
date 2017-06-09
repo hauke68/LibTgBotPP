@@ -7,6 +7,7 @@ To compile, you just need a C++-Compiler and CMake and some libraries:
 * libstdc++-dev
 * libcurlpp-dev
 * libjsoncpp-dev
+* libcurl4-openssl-dev (or similar)
 
 and - of course - their dependencies.
 

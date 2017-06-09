@@ -4,7 +4,7 @@
 #include <string>
 #include <map>
 
-#include <curl/curl.h>
+#include <curlpp/cURLpp.hpp>
 #include <json/json.h>
 
 #include <Telegram/Message.h>
